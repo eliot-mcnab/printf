@@ -1,2 +1,5 @@
 # ignores libft
 libft/
+
+#ignores built library
+libftprintf.a
