@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:33:13 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/02 11:58:43 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/03 15:40:27 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "types.h"
 
 /**
- * @enum t_format
+ * @enum t_e_format
  * @brief represents a format character in a printf call.
  */
 typedef enum e_format
@@ -46,7 +46,7 @@ typedef enum e_modifier
 }	t_e_modifier;
 
 /**
- * @struct t_modinfo
+ * @struct t_s_modinfo
  * @brief Represents information attached to a modifier, used for comparison
  * 	between modifiers and conversion to byte-form representation.
  */
