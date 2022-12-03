@@ -6,15 +6,16 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:31:44 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/03 15:55:25 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/03 17:17:30 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUFFER_H
 # define BUFFER_H
 
-# include "types.h"
 # include <stdlib.h>
+# include "types.h"
+# include "libft.h"
 
 # define BUFFER_SIZE 256
 
@@ -38,8 +39,8 @@
  */
 typedef struct s_buffer
 {
-	size_t		i;
-	t_longword	data[BUFFER_SIZE / sizeof(t_longword) + 1];
+	size_t	i;
+	t_lword	data[BUFFER_SIZE / sizeof(t_lword) + 1];
 }	t_s_buffer;
 
 t_s_buffer	*ft_buffinit(void);
