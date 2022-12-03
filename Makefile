@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/02 10:32:46 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/03 15:24:57 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,6 +109,7 @@ re: fclean
 update: $(LIBDIR)
 	@echo "${LPURPLE}  updating ${WHITE}libft ${LPURPLE}...${LGRAY}"
 	@(cd libft/ && git pull)
+	@cp libft/libft.h includes/
 
 # clones libft into the repo
 $(LIBDIR): 
