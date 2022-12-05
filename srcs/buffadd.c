@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:00:38 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 14:57:42 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 15:39:39 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,32 @@ ssize_t	ft_buffadd(t_s_buffer *buffer, char c)
 		return (WRITE_ERROR);
 	buffer->data[buffer->i++] = c;
 	buffer->data[buffer->i] = '\0';
+	return (NO_ERROR);
+}
+
+/**
+ * @brief Adds an array of characters to a character buffer.
+ *
+ * @param buffer (t_s_buffer *): the buffer to add every character in [str] to.
+ * @param str (char *): the array of characters to add to [buffer],
+ *
+ * @return (ssize_t): error code.
+ * @see errors.h ft_buffadd(2)
+ *
+ * @author Eliot McNab
+ * @data 12/05/2022
+ */
+ssize_t	ft_buffadd_str(t_s_buffer *buffer, char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_buffadd(buffer, str[i]) < 0)
+			return (WRITE_ERROR);
+		i++;
+	}
 	return (NO_ERROR);
 }
 
