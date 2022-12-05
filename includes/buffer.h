@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:31:44 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 14:58:03 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 15:19:04 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ t_s_buffer		*ft_buffinit(void);
 ssize_t			ft_bufflush(t_s_buffer *buffer);
 bool			ft_buffull(t_s_buffer *buffer);
 ssize_t			ft_buffadd(t_s_buffer *buffer, char c);
+ssize_t			ft_buffclose(t_s_buffer *buffer);
 
 /**
  * @struct t_s_buffer_long
@@ -79,5 +80,6 @@ t_s_buffer_long	*ft_buffinit_long(void);
 ssize_t			ft_bufflush_long(t_s_buffer_long *buffer);
 bool			ft_buffull_long(t_s_buffer_long *buffer);
 ssize_t			ft_buffadd_long(t_s_buffer_long *buffer, t_lword lword);
+ssize_t			ft_buffclose_long(t_s_buffer_long *buffer);
 
 #endif
