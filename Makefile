@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/05 18:39:16 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/05 18:59:22 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,6 +87,9 @@ AFLAGS = -cqs
 #binary name
 BINARY = libprintf.a
 
+# test file
+TEST   = test.c
+
 # ==============================================================================
 #                                       RULES
 # ==============================================================================
@@ -136,9 +139,10 @@ dclean:
 
 # removes all object and dependency files
 clean: oclean dclean
+	@rm -f test
 
 # removes all object files and the binary
-fclean: oclean dclean
+fclean: clean
 	@rm -f $(BINARY) ./libft.a ./libftprintf.a
 	@echo "${RED}|${LGRAY}"
 	@echo "${LRED} removed ${WHITE}${BINARY}${LGRAY}"
@@ -165,8 +169,15 @@ debug:
 	@echo $(OFILES)
 	@echo $(DFILES)
 
+#builds and runs test file
+test: all
+	@$(CC) $(CFLAGS) -o test $(TEST) ./libftprintf.a
+	@chmod u+x ./test 
+	@echo "${LRED}Running tests...${LGRAY}"
+	@./test
+
 ifneq ($(filter deps, $(CMODE)),)
 -include $(DFILES)
 endif
 
-.PHONY: all libft oclean dclean clean fclean re update debug
+.PHONY: all libft oclean dclean clean fclean re update debug test
