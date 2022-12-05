@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 11:25:01 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 15:10:19 by emcnab           ###   ########.fr       */
+/*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
+/*   Updated: 2022/12/05 15:22:37 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/errors.h"
-#include "includes/printf.h"
+#include "../includes/parse.h"
 
 static short int	ft_get_formdata(const char **str, t_s_buffer *buffer)
 {
@@ -48,16 +47,11 @@ ssize_t	ft_parse(const char *str, va_list valist)
 	i = 0;
 	while (str[i])
 	{
+		formdata = ft_get_formdata(&str, buffer_char) < 0;
+		if (formdata < 0)
+			return (PARSE_ERROR);
 		i++;
 	}
+	ft_buffclose(buffer_char);
 	return (i);
-}
-
-int	ft_printf(const char *str, ...)
-{
-	size_t	i;
-	t_lword	*lword;
-
-	i = 0;
-	lword = (t_lword *)str + i;
 }
