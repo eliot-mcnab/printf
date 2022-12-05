@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 18:39:05 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 18:52:05 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ ssize_t	ft_parse(const char *str, va_list valist)
 	{
 		if (str[i] == FORM_INDICATOR)
 		{
-			formdata = ft_get_formdata(&str) < 0;
+			formdata = ft_get_formdata(&str);
+			if (formdata < 0)
+				return (PARSE_ERROR);
 			g_printfuncs[formdata % FORMAT_SIZE](formdata, buffer_char, valist);
 		}
 		ft_buffadd(buffer_char, str[i]);
-		if (formdata < 0)
-			return (PARSE_ERROR);
 		i++;
 	}
 	ft_buffclose(buffer_char);

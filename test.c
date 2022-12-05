@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:59:50 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 16:36:22 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 18:53:15 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 int	main(void)
 {
-	ft_printf("test", 'c');
+	char	*test;
+
+	test = "Hello";
+	ft_printf("%s World !\n", test);
 	return (0);
 }
