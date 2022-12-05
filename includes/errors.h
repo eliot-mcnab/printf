@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   buffshow.c                                         :+:      :+:    :+:   */
+/*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 15:57:28 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 08:57:03 by emcnab           ###   ########.fr       */
+/*   Created: 2022/12/05 10:50:39 by emcnab            #+#    #+#             */
+/*   Updated: 2022/12/05 14:23:12 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/buffer.h"
+/**
+ * @file errors.h
+ * @brief Holds error codes for use throughout ft_printf
+ * @author Eliot McNab
+ * @date 12/05/2022
+ */
 
-void	ft_buffshow(t_s_buffer *buffer)
-{
-	size_t	i;
-	t_lword	*str_current;
-	t_lword	*str_previous;
+#ifndef ERRORS_H
+# define ERRORS_H
 
-	if (!buffer)
-		return ;
-	i = buffer->i;
-	str_previous = buffer->data;
-	while (i > 0)
-	{
-		str_current = ft_lword_search(str_previous, '\0');
-		i -= (size_t)(str_current - buffer->data);
-		ft_putstr_fd((char *)str_previous, STDOUT);
-		str_previous = str_current++;
-	}
-}
+# define NO_ERROR      0
+# define WRITE_ERROR  -1
+# define FORMAT_ERROR -2
+# define READ_ERROR   -3
+# define PARSE_ERROR  -9
+# define MALLOC_ERROR -10
+# define NULL_ERROR   -11
+
+#endif
