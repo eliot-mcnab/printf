@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 19:56:47 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 20:05:46 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static short int	ft_get_formdata(const char **str)
 	modgroup = 0;
 	format = FORMAT_NONE;
 	form_start = FORM_INDICATOR;
-	while (!format)
+	while (format == FORMAT_NONE)
 	{
 		if (form_start == FORM_INDICATOR && ft_ismod(**str))
 			modgroup = ft_modify(modgroup, ft_get_modidifier(**str));
@@ -36,7 +36,7 @@ static short int	ft_get_formdata(const char **str)
 			format = ft_get_format(**str);
 		else
 			form_start = **str;
-		if (form_start != FORM_INDICATOR && format != FORMAT_NONE)
+		if (form_start != FORM_INDICATOR && format == FORMAT_NONE)
 			return (FORMAT_ERROR);
 		(*str)++;
 	}
@@ -45,11 +45,11 @@ static short int	ft_get_formdata(const char **str)
 
 ssize_t	ft_parse(const char *str, va_list valist)
 {
-	t_s_buffer	*buffer_char;
+	t_s_buffer	*buffer;
 	size_t		i;
 	short int	formdata;
 
-	buffer_char = ft_buffinit();
+	buffer = ft_buffinit();
 	i = 0;
 	formdata = 0;
 	while (str[i])
@@ -58,12 +58,15 @@ ssize_t	ft_parse(const char *str, va_list valist)
 		{
 			formdata = ft_get_formdata(&str);
 			if (formdata < 0)
+			{
+				ft_buffclose(buffer);
 				return (PARSE_ERROR);
-			g_printfuncs[formdata % FORMAT_SIZE](formdata, buffer_char, valist);
+			}
+			g_printfuncs[formdata % FORMAT_SIZE](formdata, buffer, valist);
 		}
-		ft_buffadd(buffer_char, str[i]);
+		ft_buffadd(buffer, str[i]);
 		i++;
 	}
-	ft_buffclose(buffer_char);
+	ft_buffclose(buffer);
 	return (NO_ERROR);
 }

@@ -1,11 +1,12 @@
 # ignores libft
 libft/
 
-#ignores built library
+#ignores libraries and excutables
 archives/
 libftprintf.a
 libft.a
 a.out
+test
 
 #ignores objects
 objs/
