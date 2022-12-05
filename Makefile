@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/05 17:16:01 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/05 18:39:16 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,11 +60,11 @@ LIBDIR = libft/
 LIBGIT = https://github.com/eliot-mcnab/libft.git
 
 # compilation options
-CC     = clang
-OPT    = g
-CMODE  = hard debug deps
+CC     = cc
+OPT    = 0
+CMODE  = debug deps
 DFLAGS = $(foreach directory, $(HDIR), -I$(directory)) -M -MP -MM
-CFLAGS = -Wall -Wextra -Werror -fPIC -O$(OPT)
+CFLAGS = -Wall -Wextra -Werror -fPIC
 
 ifneq ($(filter debug, $(CMODE)),)
 	CFLAGS += -g
@@ -74,6 +74,9 @@ ifneq ($(filter fsanitize, $(CMODE)),)
 endif
 ifneq ($(filter hard, $(CMODE)),)
 	CFLAGS += -Weverything
+endif
+ifneq ($(filter opt, $(CMODE)),)
+	CFLAGS += -O$(OPT)
 endif
 
 # archive options
