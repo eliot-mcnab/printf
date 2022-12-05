@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 18:52:05 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 19:56:47 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ static short int	ft_get_formdata(const char **str)
 	t_e_format	format;
 	char		form_start;
 
+	if (!str || !*str)
+		return (NULL_ERROR);
 	modgroup = 0;
-	format = 0;
+	format = FORMAT_NONE;
 	form_start = FORM_INDICATOR;
 	while (!format)
 	{
@@ -33,8 +35,8 @@ static short int	ft_get_formdata(const char **str)
 		else if (form_start == FORM_INDICATOR && ft_isformat(**str))
 			format = ft_get_format(**str);
 		else
-			form_start = FORM_INDICATOR;
-		if (form_start != FORM_INDICATOR && !format)
+			form_start = **str;
+		if (form_start != FORM_INDICATOR && format != FORMAT_NONE)
 			return (FORMAT_ERROR);
 		(*str)++;
 	}

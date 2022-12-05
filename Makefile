@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/05 18:59:22 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/05 19:58:27 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,15 +62,15 @@ LIBGIT = https://github.com/eliot-mcnab/libft.git
 # compilation options
 CC     = cc
 OPT    = 0
-CMODE  = debug deps
+CMODE  = debug deps fsanitize
 DFLAGS = $(foreach directory, $(HDIR), -I$(directory)) -M -MP -MM
-CFLAGS = -Wall -Wextra -Werror -fPIC
+CFLAGS = -Wall -Wextra -Werror
 
 ifneq ($(filter debug, $(CMODE)),)
 	CFLAGS += -g
 endif
 ifneq ($(filter fsanitize, $(CMODE)),)
-	CFLAGS += -fsanitize=adress
+	CFLAGS += -fsanitize=address
 endif
 ifneq ($(filter hard, $(CMODE)),)
 	CFLAGS += -Weverything
@@ -82,7 +82,7 @@ endif
 # archive options
 ADIR   = archives/
 AR     = ar
-AFLAGS = -cqs
+AFLAGS = -rcs
 
 #binary name
 BINARY = libprintf.a
@@ -108,7 +108,7 @@ $(BINARY): $(ODIR) $(DEPDIR) $(OFILES)
 	@$(AR) $(AFLAGS) $(ADIR)$@ $(OFILES)
 	@echo "${LGREEN}${LGRAY}"
 	@echo "${LGREEN} ${WHITE}${BINARY} ${LGREEN}built successfully!${LGRAY}"
-	@$(AR) -M <libftprintf.mri
+	@$(AR) $(AFLAGS) -M <libftprintf.mri
 	@echo "${LGREEN} ${WHITE}libftprintf.a ${LGREEN}built successfully!${LGRAY}"
 
 # if a required directory does not exist, creates it
