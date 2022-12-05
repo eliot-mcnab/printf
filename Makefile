@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/05 10:37:18 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/05 10:46:40 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ LIBGIT = https://github.com/eliot-mcnab/libft.git
 # compilation options
 CC     = clang
 OPT    = g
-CMODE  = hard debug
+CMODE  = hard debug deps
 DFLAGS = $(foreach directory, $(HDIR), -I$(directory)) -M -MP -MM
 CFLAGS = -Wall -Wextra -Werror -O$(OPT)
 
@@ -150,6 +150,8 @@ debug:
 	@echo $(OFILES)
 	@echo $(DFILES)
 
+ifneq ($(filter deps, $(CMODE)),)
 -include $(DFILES)
+endif
 
 .PHONY: all oclean dclean fclean re update debug
