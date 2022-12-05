@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:59:56 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 14:11:58 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:27:21 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ char	ft_format(t_e_format format)
  *
  * @param c (char): the chracter to get the format of.
  *
- * @reeturn (t_e_format): format associated to [c] or FORMAT_NONE if no format
- *          was associated to [c].
+ * @return (t_e_format): format associated to [c] or FORMAT_NONE if no format
+ *         was associated to [c].
  */
 t_e_format	ft_get_format(char c)
 {

@@ -6,13 +6,12 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:57:51 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 14:12:22 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:27:33 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/formdata.h"
 
-static char					*g_mods = "-0.#+ ";
 static const t_s_modinfo	g_modinfo[6] = {
 {0x1, 0x0},		/* '-' */
 {0x2, 0x1},		/* '0' */

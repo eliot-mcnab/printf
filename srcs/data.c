@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:09:14 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 14:27:28 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:30:46 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
  * @author Eliot McNab
  * @date 12/05/2022
  */
-short int	ft_printf_data(char format, char modgroup)
+short int	ft_printf_data(char modgroup, t_e_format format)
 {
-	return ((short int)((modgroup << 8) | format));
+	return ((short int)(((unsigned int) modgroup << 8) | format));
 }

@@ -6,14 +6,14 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:59:50 by emcnab            #+#    #+#             */
-/*   Updated: 2022/11/29 17:59:26 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:36:22 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "includes/printf.h"
 
 int	main(void)
 {
-	printf("test %-7i test\n", 12);
+	ft_printf("test", 'c');
 	return (0);
 }

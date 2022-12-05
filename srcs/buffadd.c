@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:00:38 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 15:39:39 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:27:05 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ssize_t	ft_buffadd(t_s_buffer *buffer, char c)
  * @see errors.h ft_buffadd(2)
  *
  * @author Eliot McNab
- * @data 12/05/2022
+ * @date 12/05/2022
  */
 ssize_t	ft_buffadd_str(t_s_buffer *buffer, char *str)
 {

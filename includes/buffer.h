@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:31:44 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 15:19:04 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 16:22:39 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@
 # define LBUFFER_SIZE BUFFER_SIZE / sizeof(t_lword)
 
 /**
- * @brief t_s_buffer
+ * @struct t_s_buffer
  * @brief A buffer of characters used by printf to store and display characters
  *        while a string is still no aligned with t_longword.
  *
- * Implements naive flush tactic, where formatted strings are not added to
- * buffer but are rather allocated, displayed and freed. This requires buffer be
- * flushed before each format but this isn't a big deal since we will be dealing
- * with at most sizeof(t_lword) - 1 characters before the string is aligned.
+ * Implements naive flush tactic, where formatted strings are allocated and only
+ * then added to buffer, displayed and freed. This allows to more easily reuse
+ * libft functions but might change at a later date once a first working
+ * prototype has been created.
  *
  * @var i (size_t): current index in the buffer.
  * @var data (char *): data contained by the buffer.
@@ -51,6 +51,7 @@ ssize_t			ft_bufflush(t_s_buffer *buffer);
 bool			ft_buffull(t_s_buffer *buffer);
 ssize_t			ft_buffadd(t_s_buffer *buffer, char c);
 ssize_t			ft_buffclose(t_s_buffer *buffer);
+ssize_t			ft_buffadd_str(t_s_buffer *buffer, char *str);
 
 /**
  * @struct t_s_buffer_long
