@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/05 10:46:40 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/05 17:16:01 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,12 @@ WHITE   = \033[1;37m
 # ==============================================================================
 
 # c source files
-CDIR   = srcs/
-SRCS   = formdata.c			buffinit.c			buffshow.c
-CFILES = $(foreach file, $(SRCS), $(CDIR)$(file))
+CDIR  = srcs/
+SRCS   = buffadd.c		buffclose.c		buffinit.c		bufflush.c    \
+         buffull.c		data.c			format.c		modifiers.c   \
+		 parse.c		ft_printf.c		ft_printchar.c	ft_printstr.c \
+
+CFILES += $(foreach file, $(SRCS), $(CDIR)$(file))
 
 # object files
 ODIR   = objs/
@@ -61,7 +64,7 @@ CC     = clang
 OPT    = g
 CMODE  = hard debug deps
 DFLAGS = $(foreach directory, $(HDIR), -I$(directory)) -M -MP -MM
-CFLAGS = -Wall -Wextra -Werror -O$(OPT)
+CFLAGS = -Wall -Wextra -Werror -fPIC -O$(OPT)
 
 ifneq ($(filter debug, $(CMODE)),)
 	CFLAGS += -g
@@ -74,28 +77,33 @@ ifneq ($(filter hard, $(CMODE)),)
 endif
 
 # archive options
+ADIR   = archives/
 AR     = ar
 AFLAGS = -cqs
 
 #binary name
-BINARY = libftprintf.a
+BINARY = libprintf.a
 
 # ==============================================================================
 #                                       RULES
 # ==============================================================================
 
 # by default, builds binary
-all: $(BINARY)
+all: libft $(BINARY)
 
-header:
-	@echo test
+# builds libft library
+libft: $(LIBDIR)
+	@(cd ./libft/ && make)
+	@cp ./libft/libft.a $(ADIR)
 
 # for binary to be built, all object files must have been compiled into the
 # object directory
 $(BINARY): $(ODIR) $(DEPDIR) $(OFILES)
-	@$(AR) $(AFLAGS)  $@ $(OFILES)
+	@$(AR) $(AFLAGS) $(ADIR)$@ $(OFILES)
 	@echo "${LGREEN}${LGRAY}"
 	@echo "${LGREEN} ${WHITE}${BINARY} ${LGREEN}built successfully!${LGRAY}"
+	@$(AR) -M <libftprintf.mri
+	@echo "${LGREEN} ${WHITE}libftprintf.a ${LGREEN}built successfully!${LGRAY}"
 
 # if a required directory does not exist, creates it
 %/:
@@ -103,7 +111,7 @@ $(BINARY): $(ODIR) $(DEPDIR) $(OFILES)
 	@echo "${LGREEN} created directory ${@}${LGRAY}"
 
 # for any .o file to be compiled, the corresponding .c file must exist
-$(ODIR)%.o: $(CDIR)%.c
+$(ODIR)%.o: $(CDIR)%.c $(DEP)
 	@$(CC) $(CFLAGS) -c -o $@ $<
 	@echo "${GREEN}|${LGRAY}"
 	@echo "${LGREEN} ${LGRAY}${@} ${GREEN}built successfully!${LGRAY}"
@@ -118,13 +126,17 @@ oclean:
 	@rm -f $(OFILES)
 	@echo "${RED} removed all object files${LGRAY}"
 
+# removes all dependency files
 dclean:
 	@rm -f $(DFILES)
 	@echo "${RED} removed all dependency files${LGRAY}"
 
+# removes all object and dependency files
+clean: oclean dclean
+
 # removes all object files and the binary
 fclean: oclean dclean
-	@rm -f $(BINARY)
+	@rm -f $(BINARY) ./libft.a ./libftprintf.a
 	@echo "${RED}|${LGRAY}"
 	@echo "${LRED} removed ${WHITE}${BINARY}${LGRAY}"
 
@@ -154,4 +166,4 @@ ifneq ($(filter deps, $(CMODE)),)
 -include $(DFILES)
 endif
 
-.PHONY: all oclean dclean fclean re update debug
+.PHONY: all libft oclean dclean clean fclean re update debug
