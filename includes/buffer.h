@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:31:44 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/03 17:17:30 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 10:04:09 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <stdlib.h>
 # include "types.h"
 # include "libft.h"
-
-# define BUFFER_SIZE 256
 
 /**
  * @struct t_s_buffer
@@ -44,5 +42,6 @@ typedef struct s_buffer
 }	t_s_buffer;
 
 t_s_buffer	*ft_buffinit(void);
+void		ft_buffshow(t_s_buffer *buffer);
 
 #endif

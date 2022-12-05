@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:09:14 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/02 12:00:43 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 09:15:30 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static const t_s_modinfo	g_info[6] = {
  * @brief Combines the [format] byte and modifier bytes into 32 bits, where the
  * 	first byte corresponds to [format] and the second to [modgroup].
  *
- * @brief format (char): byte representation of the format to use in a printf
+ * @param format (char): byte representation of the format to use in a printf
  * 	call.
- * @brief modgroup (char): byte representation of the modifiers used in a printf
+ * @param modgroup (char): byte representation of the modifiers used in a printf
  * 	call.
  *
  * return (short int): 32-bit representation containing both the [format] and
@@ -35,7 +35,7 @@ static const t_s_modinfo	g_info[6] = {
  */
 short int	ft_printf_data(char format, char modgroup)
 {
-	return ((format << 8) | modgroup);
+	return ((short int)((format << 8) | modgroup));
 }
 
 /**
@@ -47,7 +47,7 @@ short int	ft_printf_data(char format, char modgroup)
  */
 char	ft_format(t_e_format format)
 {
-	return (1 << format);
+	return ((char)(1 << format));
 }
 
 /**

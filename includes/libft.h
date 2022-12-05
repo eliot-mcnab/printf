@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:47:51 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/03 17:07:02 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 08:49:23 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,10 +152,10 @@ int		ft_memcmp(const void *mem_a, const void *mem_b, size_t size);
 size_t	*ft_pack(size_t argc, ...);
 
 // system io
-void	ft_putchar_fd(char c, int file_desc);
-void	ft_putstr_fd(char *str, int file_desc);
-void	ft_putendl_fd(char *str, int file_desc);
-void	ft_putnbr_fd(int n, int file_desc);
+ssize_t	ft_putchar_fd(char c, int file_desc);
+ssize_t	ft_putstr_fd(char *str, int file_desc);
+ssize_t	ft_putendl_fd(char *str, int file_desc);
+ssize_t	ft_putnbr_fd(int n, int file_desc);
 char	*ft_get_next_line(int fd);
 
 // type conversion

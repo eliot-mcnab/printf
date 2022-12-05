@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:33:13 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/03 15:40:27 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/05 09:13:46 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ typedef struct s_modinfo
 	char	conflics;	/* byte pattern representing uncompatible modifier    */
 }	t_s_modinfo;
 
-char	ft_modify(char modgroup, t_e_modifier modifier);
+short int	ft_printf_data(char format, char modgroup);
+char		ft_format(t_e_format format);
+char		ft_modify(char modgroup, t_e_modifier modifier);
 
 #endif
