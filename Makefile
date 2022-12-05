@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/03 15:24:57 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/05 10:37:18 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,19 +36,31 @@ WHITE   = \033[1;37m
 #                                    COMPILATION
 # ==============================================================================
 
+# c source files
 CDIR   = srcs/
-SRCS   = modifiers.c
+SRCS   = formdata.c			buffinit.c			buffshow.c
 CFILES = $(foreach file, $(SRCS), $(CDIR)$(file))
 
+# object files
 ODIR   = objs/
 OFILES = $(patsubst $(CDIR)%.c, $(ODIR)%.o, $(CFILES))
 
+# dependency files used for hearder awareness
+DEPDIR = deps/
+DFILES = $(patsubst $(CDIR)%.c, $(DEPDIR)%.d, $(CFILES))
+
+# header info
+HDIR   = includes/
+
+# libft  info
 LIBDIR = libft/
 LIBGIT = https://github.com/eliot-mcnab/libft.git
 
+# compilation options
 CC     = clang
 OPT    = g
 CMODE  = hard debug
+DFLAGS = $(foreach directory, $(HDIR), -I$(directory)) -M -MP -MM
 CFLAGS = -Wall -Wextra -Werror -O$(OPT)
 
 ifneq ($(filter debug, $(CMODE)),)
@@ -61,9 +73,11 @@ ifneq ($(filter hard, $(CMODE)),)
 	CFLAGS += -Weverything
 endif
 
+# archive options
 AR     = ar
 AFLAGS = -cqs
 
+#binary name
 BINARY = libftprintf.a
 
 # ==============================================================================
@@ -73,11 +87,14 @@ BINARY = libftprintf.a
 # by default, builds binary
 all: $(BINARY)
 
+header:
+	@echo test
+
 # for binary to be built, all object files must have been compiled into the
 # object directory
-$(BINARY): update $(ODIR) $(OFILES)
+$(BINARY): $(ODIR) $(DEPDIR) $(OFILES)
 	@$(AR) $(AFLAGS)  $@ $(OFILES)
-	@echo "${GREEN}|${LGRAY}"
+	@echo "${LGREEN}${LGRAY}"
 	@echo "${LGREEN} ${WHITE}${BINARY} ${LGREEN}built successfully!${LGRAY}"
 
 # if a required directory does not exist, creates it
@@ -87,16 +104,26 @@ $(BINARY): update $(ODIR) $(OFILES)
 
 # for any .o file to be compiled, the corresponding .c file must exist
 $(ODIR)%.o: $(CDIR)%.c
-	@$(CC) $(CFLAGS) -c -o $@ $^	
+	@$(CC) $(CFLAGS) -c -o $@ $<
+	@echo "${GREEN}|${LGRAY}"
 	@echo "${LGREEN} ${LGRAY}${@} ${GREEN}built successfully!${LGRAY}"
 
+$(DEPDIR)%.d: $(CDIR)%.c
+	@$(CC) $(DFLAGS) -MF $@ -MT $(patsubst $(CDIR)%.c, $(ODIR)%.o, $<) $<
+	@echo "${ORANGE}|${LGRAY}"
+	@echo "${ORANGE} ${LGRAY}${@} ${ORANGE}dependency generated!${LGRAY}"
+
 # removes all object files
-clean:
+oclean:
 	@rm -f $(OFILES)
 	@echo "${RED} removed all object files${LGRAY}"
 
+dclean:
+	@rm -f $(DFILES)
+	@echo "${RED} removed all dependency files${LGRAY}"
+
 # removes all object files and the binary
-fclean: clean
+fclean: oclean dclean
 	@rm -f $(BINARY)
 	@echo "${RED}|${LGRAY}"
 	@echo "${LRED} removed ${WHITE}${BINARY}${LGRAY}"
@@ -121,5 +148,8 @@ $(LIBDIR):
 debug:
 	@echo $(CFILES)
 	@echo $(OFILES)
+	@echo $(DFILES)
 
-.PHONY: clean fclean re update debug
+-include $(DFILES)
+
+.PHONY: all oclean dclean fclean re update debug

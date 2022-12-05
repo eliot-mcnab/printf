@@ -3,3 +3,9 @@ libft/
 
 #ignores built library
 libftprintf.a
+
+#ignores objects
+objs/
+
+#ignores dependency files
+deps/
