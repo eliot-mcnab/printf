@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:00:38 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 17:32:32 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 19:53:54 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ ssize_t	ft_buffadd_str(t_s_buffer *buffer, char *str)
 	return (NO_ERROR);
 }
 
-/**
+/*
  * @brief Adds a new longword to a longword buffer.
  *
  * Supposes that there is enough space in buffer to add [lword]. If buffer is
@@ -80,11 +80,11 @@ ssize_t	ft_buffadd_str(t_s_buffer *buffer, char *str)
  * @author Eliot McNab
  * @date 12/05/2022
  */
-ssize_t	ft_buffadd_long(t_s_buffer_long *buffer, t_lword lword)
+/* ssize_t	ft_buffadd_long(t_s_buffer_long *buffer, t_lword lword)
 {
 	if (ft_buffull_long(buffer) && ft_bufflush_long(buffer) < 0)
 		return (WRITE_ERROR);
 	buffer->data[buffer->i++] = lword;
 	buffer->data[buffer->i] = 0x0L;
 	return (NO_ERROR);
-}
+} */

@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:31:44 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 11:01:53 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 19:53:24 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ ssize_t			ft_buffadd(t_s_buffer *buffer, char c);
 ssize_t			ft_buffclose(t_s_buffer *buffer);
 ssize_t			ft_buffadd_str(t_s_buffer *buffer, char *str);
 
-/**
+/*
  * @brief A buffer of longwords used by printf to store and display multiple
  *        bytes of information at once.
  *
@@ -63,17 +63,16 @@ ssize_t			ft_buffadd_str(t_s_buffer *buffer, char *str);
  * considered as multiple null-terminated c strings upon display, until the end
  * of the buffer has been reached.
  */
-typedef struct s_lbuffer
+/* typedef struct s_lbuffer
 {
-	size_t	i;                      /**< (size_t): current index in the buffer.*/
-	t_lword	data[LBUFFER_SIZE + 1]; /**< (t_longword *): data contained 
-									      by the buffer.                       */
+	size_t	i;
+	t_lword	data[LBUFFER_SIZE + 1];
 }	t_s_buffer_long;
 
 t_s_buffer_long	*ft_buffinit_long(void);
 ssize_t			ft_bufflush_long(t_s_buffer_long *buffer);
 bool			ft_buffull_long(t_s_buffer_long *buffer);
 ssize_t			ft_buffadd_long(t_s_buffer_long *buffer, t_lword lword);
-ssize_t			ft_buffclose_long(t_s_buffer_long *buffer);
+ssize_t			ft_buffclose_long(t_s_buffer_long *buffer); */
 
 #endif

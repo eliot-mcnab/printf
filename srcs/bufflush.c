@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:57:28 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 14:48:05 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 19:52:37 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ ssize_t	ft_bufflush(t_s_buffer *buffer)
 	return (NO_ERROR);
 }
 
-/**
+/*
  * @brief Flushes the contents of a longword buffer to STDOUT.
  *
  * Displays all the bytes added to the buffer, resetting its index to 0 and
@@ -51,7 +51,7 @@ ssize_t	ft_bufflush(t_s_buffer *buffer)
  * @author Eliot McNab
  * @date 12/05/2022
  */
-ssize_t	ft_bufflush_long(t_s_buffer_long *buffer)
+/* ssize_t	ft_bufflush_long(t_s_buffer_long *buffer)
 {
 	t_lword	*str_current;
 	t_lword	*str_previous;
@@ -69,4 +69,4 @@ ssize_t	ft_bufflush_long(t_s_buffer_long *buffer)
 	}
 	buffer->data[0] = 0x0;
 	return (NO_ERROR);
-}
+} */
