@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:43:57 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 12:05:45 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 13:44:01 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @brief Handles string display in ft_printf.
  *
  * This function is called if ft_parse encounters a string formatter. The
- * character to insert is retrieved from [valist] and added to [buffer].
+ * string to insert is retrieved from [valist] and added to [buffer].
  *
  * @param (short int): hash containing the modifers applied to the formatter and
  *        the formatter's index.
