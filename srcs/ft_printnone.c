@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 09:26:51 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 12:06:13 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 18:32:53 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
  * This function is called if ft_parse encounters a formatter which has not yet
  * been implemented, adding "[formatter not implemented yet]" to the buffer. 
  *
- * @param (short int): hash containing the modifers applied to the formatter and
- *        the formatter's index.
+ * @param formdata (short int): hash containing the modifers applied to the
+ *        formatter and the formatter's index.
  * @param valist (va_list): variable argument list used to retrieve the
  *        character.
  *

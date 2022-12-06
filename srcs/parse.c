@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 15:54:06 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 18:30:09 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 static const t_f_formatter	g_printfuncs[] = {
 	&ft_printchar,	  /* handles charcacter display                           */
 	&ft_printstr,     /* handles string display                               */
-	&ft_printnone,    /* handles pointer display                              */
+	&ft_printptr,     /* handles pointer display                              */
 	&ft_printint,     /* handles decimal display                              */
 	&ft_printint,     /* handles int display                                  */
 	&ft_printuint,    /* handles unsigned int display                         */
-	&ft_printnone,    /* handles small caps hex display                       */
-	&ft_printnone,    /* handles big caps hex display                         */
-	&ft_printind, /* handles percentage display                           */
+	&ft_printhex_s,   /* handles small caps hex display                       */
+	&ft_printhex_b,   /* handles big caps hex display                         */
+	&ft_printind,     /* handles percentage display                           */
 };
 
 /**
- * @brieft Calculates the formdata bytes of a fomat section in a printf string.
+ * @brief Calculates the formdata bytes of a fomat section in a printf string.
  *
  * Formdata is composed of two bytes, where the first bytes holds a hash of the
  * modifiers associated to the format and the second byte contains the index of
@@ -39,7 +39,7 @@ static const t_f_formatter	g_printfuncs[] = {
  *         format).
  *
  * @author Eliot McNab
- * @data 12/06/2022
+ * @date 12/06/2022
  */
 static short int	ft_get_formdata(const char **str)
 {

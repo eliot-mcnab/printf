@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:33:00 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 15:35:58 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 18:31:49 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
  * ft_itoa(int n) is used to convert the integer to a string, which is then
  * added to the buffer.
  *
- * @param (short int): hash containing the modifers applied to the formatter and
- *        the formatter's index.
+ * @param formdata (short int): hash containing the modifers applied to the
+ *        formatter and the formatter's index.
  * @param valist (va_list): variable argument list used to retrieve the
  *        string.
  *
@@ -45,6 +45,8 @@ ssize_t	ft_printint(short int formdata, t_s_buffer *buffer, va_list valist)
 
 	(void) formdata;
 	str_int = ft_itoa(va_arg(valist, int));
+	if (!str_int)
+		return (MALLOC_ERROR);
 	error_code = ft_buffadd_str(buffer, str_int);
 	free(str_int);
 	return (error_code);

@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:47:51 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 15:24:12 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 17:55:26 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,10 @@ size_t	ft_max(size_t a, size_t b);
 size_t	ft_min(size_t a, size_t b);
 size_t	ft_intlen(int n_abs);
 size_t	ft_longlen(long l);
+size_t	ft_baselen(long l, long base);
+char	*ft_itoa(int n);
+char	*ft_ltoa(long l);
+char	*ft_itoa_base(long l, char *base);
 
 // maths
 int		ft_abs(int a);
@@ -131,8 +135,6 @@ char	*ft_substr(t_str string, t_uint start_index, size_t max_size);
 char	*ft_strjoin(t_str str_a, t_str str_b);
 char	*ft_strnjoin(size_t argc, ...);
 char	*ft_strtrim(t_str to_trim, t_str trim_set);
-char	*ft_itoa(int n);
-char	*ft_ltoa(long l);
 char	*ft_strmapi(t_str str, char (*mapping_f)(t_uint, char));
 char	**ft_split(t_str to_split, char delimiter);
 size_t	ft_strlen(t_str str);

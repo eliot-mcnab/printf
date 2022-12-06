@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printlong.c                                     :+:      :+:    :+:   */
+/*   ft_printuint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:31:14 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 15:41:45 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 18:31:28 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
  * [buffer]. ft_ltoa(int n) is used to convert it to a string, which is then
  * added to the buffer.
  *
- * @param (short int): hash containing the modifers applied to the formatter and
- *        the formatter's index.
+ * @param formdata (short int): hash containing the modifers applied to the
+ *        formatter and the formatter's index.
  * @param valist (va_list): variable argument list used to retrieve the
  *        string.
  *
@@ -45,6 +45,8 @@ ssize_t	ft_printuint(short int formdata, t_s_buffer *buffer, va_list valist)
 
 	(void) formdata;
 	str_long = ft_ltoa(va_arg(valist, unsigned int));
+	if (!str_long)
+		return (MALLOC_ERROR);
 	error_code = ft_buffadd_str(buffer, str_long);
 	free(str_long);
 	return (error_code);

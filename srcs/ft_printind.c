@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 09:21:59 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 15:54:03 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 18:32:26 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
  * This function is called if ft_parse encounters a FORM_INDICATOR and adds it
  * to [buffer].
  *
- * @param (short int): hash containing the modifers applied to the formatter and
- *        the formatter's index.
+ * @param formdata (short int): hash containing the modifers applied to the
+ *        formatter and the formatter's index.
  * @param valist (va_list): variable argument list used to retrieve the
  *        character.
  *

@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:00:38 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 11:57:27 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 17:32:32 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ ssize_t	ft_buffadd_str(t_s_buffer *buffer, char *str)
 {
 	size_t	i;
 
+	if (!str)
+		return (NULL_ERROR);
 	i = 0;
 	while (str[i])
 	{
