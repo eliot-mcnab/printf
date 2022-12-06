@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:59:56 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 16:27:21 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 09:16:45 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,6 @@ static const t_e_format	g_to_format[26] = {
 };
 
 /**
- * @brief Converts a [format] to a single bit in a byte.
- *
- * @param format (t_format): the format to convert to a byte.
- *
- * @return (char): byte representation of [format].
- */
-char	ft_format(t_e_format format)
-{
-	return ((char)(1 << format));
-}
-
-/**
  * @brief Gets the format associated to a character.
  *
  * @param c (char): the chracter to get the format of.
@@ -68,6 +56,8 @@ t_e_format	ft_get_format(char c)
 		return (g_to_format[c - 'a']);
 	else if (c == 'X')
 		return (BIG_HEX);
+	else if (c == '%')
+		return (PERCENTAGE);
 	return (FORMAT_NONE);
 }
 

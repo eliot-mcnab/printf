@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:33:13 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 16:30:15 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 09:16:56 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef enum e_format
 	UINT,       /* used to display a base 10 unsigned integer number          */
 	SMALL_HEX,  /* used to display a hexadecimal number in small caps         */
 	BIG_HEX,    /* used to display a hexadecimal number in big caps           */
+	PERCENTAGE, /* escaped % sign                                             */
 	FORMAT_SIZE,
 	FORMAT_NONE
 }	t_e_format;
@@ -62,7 +63,6 @@ typedef struct s_modinfo
 }	t_s_modinfo;
 
 short int		ft_printf_data(char modgroup, t_e_format format);
-char			ft_format(t_e_format format);
 t_e_format		ft_get_format(char c);
 bool			ft_isformat(char c);
 char			ft_modify(char modgroup, t_e_modifier modifier);
