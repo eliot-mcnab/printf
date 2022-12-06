@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printpercent.c                                  :+:      :+:    :+:   */
+/*   ft_printind.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 09:21:59 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 13:51:15 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 15:54:03 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
  * @author Eliot McNab
  * @date 12/06/2022
  */
-ssize_t	ft_printpercent(short int formdata, t_s_buffer *buffer, va_list valist)
+ssize_t	ft_printind(short int formdata, t_s_buffer *buffer, va_list valist)
 {
 	(void)formdata;
 	(void)valist;

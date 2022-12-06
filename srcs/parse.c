@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 15:41:58 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 15:54:06 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static const t_f_formatter	g_printfuncs[] = {
 	&ft_printuint,    /* handles unsigned int display                         */
 	&ft_printnone,    /* handles small caps hex display                       */
 	&ft_printnone,    /* handles big caps hex display                         */
-	&ft_printpercent, /* handles percentage display                           */
+	&ft_printind, /* handles percentage display                           */
 };
 
 /**
@@ -31,8 +31,8 @@ static const t_f_formatter	g_printfuncs[] = {
  * modifiers associated to the format and the second byte contains the index of
  * the format.
  *
- * @param str (char **): reference to the string being parsed, must point to the
- *        first charcacter after a FORM_INDICATOR.
+ * @param str (char **): reference to the string being parsed, must point to a
+ *        FORM_INDICATOR.
  *
  * @return (short int): formdata hash associated to the format startning at 
  *         FORM_INDICATOR. Will be negative if a format error occurred (invalid
@@ -51,6 +51,7 @@ static short int	ft_get_formdata(const char **str)
 		return (NULL_ERROR);
 	if (!**str)
 		return (FORMAT_ERROR);
+	(*str)++;
 	modgroup = 0;
 	format = FORMAT_NONE;
 	form_start = FORM_INDICATOR;
@@ -93,7 +94,7 @@ ssize_t	ft_parse(const char *str, va_list valist)
 	formdata = 0;
 	while (*str)
 	{
-		if (*str++ == FORM_INDICATOR)
+		if (*str == FORM_INDICATOR)
 		{
 			formdata = ft_get_formdata(&str);
 			if (formdata < 0)
