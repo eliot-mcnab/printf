@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/06 09:35:54 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/06 15:39:16 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ CDIR  = srcs/
 SRCS   = buffadd.c			buffclose.c			buffinit.c			bufflush.c    \
          buffull.c			data.c				format.c			modifiers.c   \
 		 parse.c			ft_printf.c			ft_printchar.c		ft_printstr.c \
-		 ft_printpercent.c	ft_printnone.c
+		 ft_printpercent.c	ft_printnone.c		ft_printlong.c
 
 CFILES += $(foreach file, $(SRCS), $(CDIR)$(file))
 

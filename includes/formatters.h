@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:31:23 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 13:50:43 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 15:41:08 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ typedef ssize_t	(*t_f_formatter)(short int, t_s_buffer*, va_list);
 
 ssize_t	ft_printchar(short int formdata, t_s_buffer *buffer, va_list valist);
 ssize_t	ft_printstr(short int formdata, t_s_buffer *buffer, va_list valist);
+ssize_t	ft_printint(short int formdata, t_s_buffer *buffer, va_list valist);
+ssize_t	ft_printuint(short int formdata, t_s_buffer *buffer, va_list valist);
 ssize_t	ft_printpercent(short int formdata, t_s_buffer *buffer, va_list valist);
 ssize_t	ft_printnone(short int formdata, t_s_buffer *buffer, va_list valist);
-ssize_t	ft_printint(short int formdata, t_s_buffer *buffer, va_list valist);
 
 #endif
