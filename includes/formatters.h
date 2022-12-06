@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:31:23 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 18:21:55 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 19:27:23 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@
 
 # include "buffer.h"
 # include <stdarg.h>
+
+# define SMALL_HEX_BASE "0123456789abcdef"
+# define BIG_HEX_BASE   "0123456789ABCDEF"
+# define NULL_STR       "(null)"
+# define NULL_PTR       "(nil)"
 
 typedef ssize_t	(*t_f_formatter)(short int, t_s_buffer*, va_list);
 

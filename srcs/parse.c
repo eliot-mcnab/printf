@@ -6,22 +6,22 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 18:30:09 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 19:21:45 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/parse.h"
 
 static const t_f_formatter	g_printfuncs[] = {
-	&ft_printchar,	  /* handles charcacter display                           */
-	&ft_printstr,     /* handles string display                               */
-	&ft_printptr,     /* handles pointer display                              */
-	&ft_printint,     /* handles decimal display                              */
-	&ft_printint,     /* handles int display                                  */
-	&ft_printuint,    /* handles unsigned int display                         */
-	&ft_printhex_s,   /* handles small caps hex display                       */
-	&ft_printhex_b,   /* handles big caps hex display                         */
-	&ft_printind,     /* handles percentage display                           */
+	&ft_printchar,
+	&ft_printstr,
+	&ft_printptr,
+	&ft_printint,
+	&ft_printint,
+	&ft_printuint,
+	&ft_printhex_s,
+	&ft_printhex_b,
+	&ft_printind,
 };
 
 /**

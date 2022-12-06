@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:56:27 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 19:14:13 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 19:27:29 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ ssize_t	ft_printptr(short int formdata, t_s_buffer *buffer, va_list valist)
 	(void) formdata;
 	ptr = va_arg(valist, void *);
 	if (!ptr)
-		return (ft_buffadd_str(buffer, "(nil)"));
-	str_ptr = ft_itoa_base((long)ptr, "0123456789abcdef");
+		return (ft_buffadd_str(buffer, NULL_PTR));
+	str_ptr = ft_itoa_base((long)ptr, SMALL_HEX_BASE);
 	if (!str_ptr)
 		return (MALLOC_ERROR);
 	error_code = ft_buffadd_str(buffer, "0x");

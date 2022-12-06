@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:43:57 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 18:46:42 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 19:26:44 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ ssize_t	ft_printstr(short int formdata, t_s_buffer *buffer, va_list valist)
 	(void) formdata;
 	str = va_arg(valist, char *);
 	if (!str)
-		str = "(null)";
+		str = NULL_STR;
 	return (ft_buffadd_str(buffer, str));
 }
