@@ -6,7 +6,10 @@ archives/
 libftprintf.a
 libft.a
 a.out
+
+# ignores test files
 test
+test.c
 
 #ignores objects
 objs/

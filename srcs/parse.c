@@ -6,17 +6,41 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 20:05:46 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 09:57:24 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/parse.h"
 
 static const t_f_formatter	g_printfuncs[] = {
-	&ft_printchar,
-	&ft_printstr
+	&ft_printchar,	  /* handles charcacter display                           */
+	&ft_printstr,     /* handles string display                               */
+	&ft_printnone,     /* handles pointer display                             */
+	&ft_printnone,     /* handles decimal display                             */
+	&ft_printnone,     /* handles int display                                 */
+	&ft_printnone,     /* handles unsigned int display                        */
+	&ft_printnone,     /* handles small caps hex display                      */
+	&ft_printnone,     /* handles big caps hex display                        */
+	&ft_printpercent, /* handles percentage display                           */
 };
 
+/**
+ * @brieft Calculates the formdata bytes of a fomat section in a printf string.
+ *
+ * Formdata is composed of two bytes, where the first bytes holds a hash of the
+ * modifiers associated to the format and the second byte contains the index of
+ * the format.
+ *
+ * @param str (char **): reference to the string being parsed, must point to the
+ *        first charcacter after a FORM_INDICATOR.
+ *
+ * @return (short int): formdata hash associated to the format startning at 
+ *         FORM_INDICATOR. Will be negative if a format error occurred (invalid
+ *         format).
+ *
+ * @author Eliot McNab
+ * @data 12/06/2022
+ */
 static short int	ft_get_formdata(const char **str)
 {
 	char		modgroup;
@@ -25,6 +49,8 @@ static short int	ft_get_formdata(const char **str)
 
 	if (!str || !*str)
 		return (NULL_ERROR);
+	if (!**str)
+		return (FORMAT_ERROR);
 	modgroup = 0;
 	format = FORMAT_NONE;
 	form_start = FORM_INDICATOR;
@@ -43,18 +69,31 @@ static short int	ft_get_formdata(const char **str)
 	return (ft_printf_data(modgroup, format));
 }
 
+/**
+ * @brief Parses a string fop FORM_INDICATORs and replaces those by the
+ *        specified format.
+ *
+ * Whenever a FORM_INDICATOR is found, tries to extract the format directly
+ * after it. Format is displayed usiong a custom function for that format.
+ * Parsing stops when the end of the string has been reached or a error has
+ * occurred. These can be a PARSE_ERROR if an invalid format was detected or a
+ * WRITE_ERROR if buffer was unable to write to STDOUT.
+ *
+ * @param str (const char *): the format sting to parse.
+ * @param valist (va_list): list of arguments passed to ft_printf.
+ *
+ * @see ft_printf(2) errors.h formatters.h
+ */
 ssize_t	ft_parse(const char *str, va_list valist)
 {
 	t_s_buffer	*buffer;
-	size_t		i;
 	short int	formdata;
 
 	buffer = ft_buffinit();
-	i = 0;
 	formdata = 0;
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == FORM_INDICATOR)
+		if (*str++ == FORM_INDICATOR)
 		{
 			formdata = ft_get_formdata(&str);
 			if (formdata < 0)
@@ -64,9 +103,10 @@ ssize_t	ft_parse(const char *str, va_list valist)
 			}
 			g_printfuncs[formdata % FORMAT_SIZE](formdata, buffer, valist);
 		}
-		ft_buffadd(buffer, str[i]);
-		i++;
+		if (ft_buffadd(buffer, *str) < 0)
+			return (WRITE_ERROR);
+		if (*str)
+			str++;
 	}
-	ft_buffclose(buffer);
-	return (NO_ERROR);
+	return (ft_buffclose(buffer));
 }

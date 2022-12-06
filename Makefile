@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/05 19:58:27 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/06 09:35:54 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,9 +38,10 @@ WHITE   = \033[1;37m
 
 # c source files
 CDIR  = srcs/
-SRCS   = buffadd.c		buffclose.c		buffinit.c		bufflush.c    \
-         buffull.c		data.c			format.c		modifiers.c   \
-		 parse.c		ft_printf.c		ft_printchar.c	ft_printstr.c \
+SRCS   = buffadd.c			buffclose.c			buffinit.c			bufflush.c    \
+         buffull.c			data.c				format.c			modifiers.c   \
+		 parse.c			ft_printf.c			ft_printchar.c		ft_printstr.c \
+		 ft_printpercent.c	ft_printnone.c
 
 CFILES += $(foreach file, $(SRCS), $(CDIR)$(file))
 
@@ -61,7 +62,7 @@ LIBGIT = https://github.com/eliot-mcnab/libft.git
 
 # compilation options
 CC     = cc
-OPT    = 0
+OPT    = 3
 CMODE  = debug deps fsanitize
 DFLAGS = $(foreach directory, $(HDIR), -I$(directory)) -M -MP -MM
 CFLAGS = -Wall -Wextra -Werror
