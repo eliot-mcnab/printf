@@ -1,0 +1,54 @@
+\hypertarget{buffer_8h_source}{}\doxysection{buffer.\+h}
+\label{buffer_8h_source}\index{includes/buffer.h@{includes/buffer.h}}
+\mbox{\hyperlink{buffer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{2 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{3 \textcolor{comment}{/*                                                        :::      ::::::::   */}}
+\DoxyCodeLine{4 \textcolor{comment}{/*   buffer.h                                           :+:      :+:    :+:   */}}
+\DoxyCodeLine{5 \textcolor{comment}{/*                                                    +:+ +:+         +:+     */}}
+\DoxyCodeLine{6 \textcolor{comment}{/*   By: emcnab <emcnab@student.42.fr>              +\#+  +:+       +\#+        */}}
+\DoxyCodeLine{7 \textcolor{comment}{/*                                                +\#+\#+\#+\#+\#+   +\#+           */}}
+\DoxyCodeLine{8 \textcolor{comment}{/*   Created: 2022/12/03 15:31:44 by emcnab            \#+\#    \#+\#             */}}
+\DoxyCodeLine{9 \textcolor{comment}{/*   Updated: 2022/12/05 16:22:39 by emcnab           \#\#\#   \#\#\#\#\#\#\#\#.fr       */}}
+\DoxyCodeLine{10 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{11 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#ifndef BUFFER\_H}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\# define BUFFER\_H}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\# include <stdlib.h>}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\# include "{}types.h"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\# include "{}\mbox{\hyperlink{errors_8h}{errors.h}}"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\# include "{}libft.h"{}}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\# define LBUFFER\_SIZE BUFFER\_SIZE / sizeof(t\_lword)}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{43 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structs__buffer}{s\_buffer}}}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45     \textcolor{keywordtype}{size\_t}  i;}
+\DoxyCodeLine{46     \textcolor{keywordtype}{char}    data[\textcolor{keyword}{sizeof}(t\_lword)];}
+\DoxyCodeLine{47 \}   \mbox{\hyperlink{structt__s__buffer}{t\_s\_buffer}};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \mbox{\hyperlink{structt__s__buffer}{t\_s\_buffer}}        *\mbox{\hyperlink{buffer_8h_a1c19e8bbadfd21bc5b631cbe6293906e}{ft\_buffinit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{50 ssize\_t         \mbox{\hyperlink{buffer_8h_adc88375d644782df58a008444b23d260}{ft\_bufflush}}(\mbox{\hyperlink{structt__s__buffer}{t\_s\_buffer}} *buffer);}
+\DoxyCodeLine{51 \textcolor{keywordtype}{bool}            \mbox{\hyperlink{buffer_8h_a2d84720e543e1c246f8e690eaf0cc59d}{ft\_buffull}}(\mbox{\hyperlink{structt__s__buffer}{t\_s\_buffer}} *buffer);}
+\DoxyCodeLine{52 ssize\_t         \mbox{\hyperlink{buffer_8h_a2bf2dc4936e102e7bd1e86ff626a43dd}{ft\_buffadd}}(\mbox{\hyperlink{structt__s__buffer}{t\_s\_buffer}} *buffer, \textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{53 ssize\_t         \mbox{\hyperlink{buffer_8h_a0feb3b28d3cfcb0c0489ca1a4c02342d}{ft\_buffclose}}(\mbox{\hyperlink{structt__s__buffer}{t\_s\_buffer}} *buffer);}
+\DoxyCodeLine{54 ssize\_t         \mbox{\hyperlink{buffer_8h_a7288bf52ee81004aa4c4579e95a62311}{ft\_buffadd\_str}}(\mbox{\hyperlink{structt__s__buffer}{t\_s\_buffer}} *buffer, \textcolor{keywordtype}{char} *str);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{74 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structs__lbuffer}{s\_lbuffer}}}
+\DoxyCodeLine{75 \{}
+\DoxyCodeLine{76     \textcolor{keywordtype}{size\_t}  i;}
+\DoxyCodeLine{77     t\_lword data[LBUFFER\_SIZE + 1];}
+\DoxyCodeLine{78 \}   \mbox{\hyperlink{structt__s__buffer__long}{t\_s\_buffer\_long}};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \mbox{\hyperlink{structt__s__buffer__long}{t\_s\_buffer\_long}}  *\mbox{\hyperlink{buffer_8h_ac45e7ff8a01f6899bd641aab00bd6e65}{ft\_buffinit\_long}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{81 ssize\_t         \mbox{\hyperlink{buffer_8h_aafcf122e0e5cd862b7be7ee33b4c473e}{ft\_bufflush\_long}}(\mbox{\hyperlink{structt__s__buffer__long}{t\_s\_buffer\_long}} *buffer);}
+\DoxyCodeLine{82 \textcolor{keywordtype}{bool}            \mbox{\hyperlink{buffer_8h_a336c53b2f996139e6afa76eac80e18c9}{ft\_buffull\_long}}(\mbox{\hyperlink{structt__s__buffer__long}{t\_s\_buffer\_long}} *buffer);}
+\DoxyCodeLine{83 ssize\_t         \mbox{\hyperlink{buffer_8h_abe0f0709d6ae5a4dd3bd4bf3a01ccc4a}{ft\_buffadd\_long}}(\mbox{\hyperlink{structt__s__buffer__long}{t\_s\_buffer\_long}} *buffer, t\_lword lword);}
+\DoxyCodeLine{84 ssize\_t         \mbox{\hyperlink{buffer_8h_a1014454e302eaf3eb7f3b07bf91094d6}{ft\_buffclose\_long}}(\mbox{\hyperlink{structt__s__buffer__long}{t\_s\_buffer\_long}} *buffer);}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

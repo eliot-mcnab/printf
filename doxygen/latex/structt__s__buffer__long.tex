@@ -1,0 +1,21 @@
+\hypertarget{structt__s__buffer__long}{}\doxysection{t\+\_\+s\+\_\+buffer\+\_\+long Struct Reference}
+\label{structt__s__buffer__long}\index{t\_s\_buffer\_long@{t\_s\_buffer\_long}}
+
+
+A buffer of longwords used by printf to store and display multiple bytes of information at once.  
+
+
+
+
+{\ttfamily \#include $<$buffer.\+h$>$}
+
+
+
+\doxysubsection{Detailed Description}
+A buffer of longwords used by printf to store and display multiple bytes of information at once. 
+
+Buffer can contain up to \mbox{[}BUFFER\+\_\+\+SIZE\mbox{]} characters, with an extra longword to guarantee null-\/termination. Characters are considered one longword at a time, which depending on system architecture is at least 8 bytes, with 16 bytes on 64-\/bit C implementations. Note that characters MUST be added one longword at a time and cannot be added seperatly. Because format strings in printf will not always be sizeof(t\+\_\+longword) bytes long, buffer may contain empty bytes where a format string has been added. Because of this, buffer will be considered as multiple null-\/terminated c strings upon display, until the end of the buffer has been reached. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+includes/\mbox{\hyperlink{buffer_8h}{buffer.\+h}}\end{DoxyCompactItemize}

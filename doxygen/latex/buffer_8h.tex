@@ -1,0 +1,335 @@
+\hypertarget{buffer_8h}{}\doxysection{includes/buffer.h File Reference}
+\label{buffer_8h}\index{includes/buffer.h@{includes/buffer.h}}
+
+
+Holds all buffer-\/realted functions and structs for ft\+\_\+printf.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}errors.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}libft.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structs__buffer}{s\+\_\+buffer}}
+\item 
+struct \mbox{\hyperlink{structs__lbuffer}{s\+\_\+lbuffer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{buffer_8h_ae4d7b76f4d4ca8fb72fd1b948994cace}\label{buffer_8h_ae4d7b76f4d4ca8fb72fd1b948994cace}} 
+\#define {\bfseries LBUFFER\+\_\+\+SIZE}~BUFFER\+\_\+\+SIZE / sizeof(t\+\_\+lword)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{buffer_8h_a9131540b9b021f49732e6b89e594715a}\label{buffer_8h_a9131540b9b021f49732e6b89e594715a}} 
+typedef struct \mbox{\hyperlink{structs__buffer}{s\+\_\+buffer}} {\bfseries t\+\_\+s\+\_\+buffer}
+\item 
+\mbox{\Hypertarget{buffer_8h_acf2b96559ade8991a7882836b2cdf573}\label{buffer_8h_acf2b96559ade8991a7882836b2cdf573}} 
+typedef struct \mbox{\hyperlink{structs__lbuffer}{s\+\_\+lbuffer}} {\bfseries t\+\_\+s\+\_\+buffer\+\_\+long}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$ \mbox{\hyperlink{buffer_8h_a1c19e8bbadfd21bc5b631cbe6293906e}{ft\+\_\+buffinit}} (void)
+\begin{DoxyCompactList}\small\item\em Creates a new character buffer instance. \end{DoxyCompactList}\item 
+ssize\+\_\+t \mbox{\hyperlink{buffer_8h_adc88375d644782df58a008444b23d260}{ft\+\_\+bufflush}} (\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Flushes the contents of a character buffer to STDOUT. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{buffer_8h_a2d84720e543e1c246f8e690eaf0cc59d}{ft\+\_\+buffull}} (\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Determnines if a characterb buffer is full. \end{DoxyCompactList}\item 
+ssize\+\_\+t \mbox{\hyperlink{buffer_8h_a2bf2dc4936e102e7bd1e86ff626a43dd}{ft\+\_\+buffadd}} (\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$buffer, char c)
+\begin{DoxyCompactList}\small\item\em Adds a new character to a character buffer. \end{DoxyCompactList}\item 
+ssize\+\_\+t \mbox{\hyperlink{buffer_8h_a0feb3b28d3cfcb0c0489ca1a4c02342d}{ft\+\_\+buffclose}} (\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Flushes all the contents of a character buffer and frees it. \end{DoxyCompactList}\item 
+ssize\+\_\+t \mbox{\hyperlink{buffer_8h_a7288bf52ee81004aa4c4579e95a62311}{ft\+\_\+buffadd\+\_\+str}} (\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$buffer, char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Adds an array of characters to a character buffer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$ \mbox{\hyperlink{buffer_8h_ac45e7ff8a01f6899bd641aab00bd6e65}{ft\+\_\+buffinit\+\_\+long}} (void)
+\begin{DoxyCompactList}\small\item\em Creates a new longword buffer instance. \end{DoxyCompactList}\item 
+ssize\+\_\+t \mbox{\hyperlink{buffer_8h_aafcf122e0e5cd862b7be7ee33b4c473e}{ft\+\_\+bufflush\+\_\+long}} (\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Flushes the contents of a longword buffer to STDOUT. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{buffer_8h_a336c53b2f996139e6afa76eac80e18c9}{ft\+\_\+buffull\+\_\+long}} (\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Determnines if a longword buffer is full. \end{DoxyCompactList}\item 
+ssize\+\_\+t \mbox{\hyperlink{buffer_8h_abe0f0709d6ae5a4dd3bd4bf3a01ccc4a}{ft\+\_\+buffadd\+\_\+long}} (\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$buffer, t\+\_\+lword lword)
+\begin{DoxyCompactList}\small\item\em Adds a new longword to a longword buffer. \end{DoxyCompactList}\item 
+ssize\+\_\+t \mbox{\hyperlink{buffer_8h_a1014454e302eaf3eb7f3b07bf91094d6}{ft\+\_\+buffclose\+\_\+long}} (\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Flushes all the contents of a long buffer and frees it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds all buffer-\/realted functions and structs for ft\+\_\+printf. 
+
+\begin{DoxyAuthor}{Author}
+Eliot Mc\+Nab 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/05/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{buffer_8h_a2bf2dc4936e102e7bd1e86ff626a43dd}\label{buffer_8h_a2bf2dc4936e102e7bd1e86ff626a43dd}} 
+\index{buffer.h@{buffer.h}!ft\_buffadd@{ft\_buffadd}}
+\index{ft\_buffadd@{ft\_buffadd}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{ft\_buffadd()}{ft\_buffadd()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+buffadd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$}]{buffer,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Adds a new character to a character buffer. 
+
+Supposes that there is enough space in buffer to add \mbox{[}c\mbox{]}. If buffer is full, automatically flushes it. Guarantees to null-\/terminate the buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & (\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$)\+: the buffer to add \mbox{[}c\mbox{]} to. \\
+\hline
+{\em c} & (char)\+: the character to add to \mbox{[}buffer\mbox{]}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(ssize\+\_\+t)\+: error code. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{errors_8h}{errors.\+h}}
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Eliot Mc\+Nab 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/05/2022 
+\end{DoxyDate}
+\mbox{\Hypertarget{buffer_8h_abe0f0709d6ae5a4dd3bd4bf3a01ccc4a}\label{buffer_8h_abe0f0709d6ae5a4dd3bd4bf3a01ccc4a}} 
+\index{buffer.h@{buffer.h}!ft\_buffadd\_long@{ft\_buffadd\_long}}
+\index{ft\_buffadd\_long@{ft\_buffadd\_long}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{ft\_buffadd\_long()}{ft\_buffadd\_long()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+buffadd\+\_\+long (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$}]{buffer,  }\item[{t\+\_\+lword}]{lword }\end{DoxyParamCaption})}
+
+
+
+Adds a new longword to a longword buffer. 
+
+Supposes that there is enough space in buffer to add \mbox{[}lword\mbox{]}. If buffer is full, automatically flushes it. Guarantees to null-\/terminate the buffer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & (\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$)\+: the buffer to add \mbox{[}lword\mbox{]} to. \\
+\hline
+{\em lword} & (t\+\_\+lword)\+: the longword to add to \mbox{[}buffer\mbox{]}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(ssize\+\_\+t)\+: error code. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{errors_8h}{errors.\+h}}
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Eliot Mc\+Nab 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/05/2022 
+\end{DoxyDate}
+\mbox{\Hypertarget{buffer_8h_a7288bf52ee81004aa4c4579e95a62311}\label{buffer_8h_a7288bf52ee81004aa4c4579e95a62311}} 
+\index{buffer.h@{buffer.h}!ft\_buffadd\_str@{ft\_buffadd\_str}}
+\index{ft\_buffadd\_str@{ft\_buffadd\_str}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{ft\_buffadd\_str()}{ft\_buffadd\_str()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+buffadd\+\_\+str (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$}]{buffer,  }\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Adds an array of characters to a character buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & (\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$)\+: the buffer to add every character in \mbox{[}str\mbox{]} to. \\
+\hline
+{\em str} & (char $\ast$)\+: the array of characters to add to \mbox{[}buffer\mbox{]},\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(ssize\+\_\+t)\+: error code. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{errors_8h}{errors.\+h}} ft\+\_\+buffadd(2)
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Eliot Mc\+Nab 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/05/2022 
+\end{DoxyDate}
+\mbox{\Hypertarget{buffer_8h_a0feb3b28d3cfcb0c0489ca1a4c02342d}\label{buffer_8h_a0feb3b28d3cfcb0c0489ca1a4c02342d}} 
+\index{buffer.h@{buffer.h}!ft\_buffclose@{ft\_buffclose}}
+\index{ft\_buffclose@{ft\_buffclose}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{ft\_buffclose()}{ft\_buffclose()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+buffclose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Flushes all the contents of a character buffer and frees it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & (\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$)\+: the buffer to close.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(ssize\+\_\+t)\+: error code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{buffer_8h_a1014454e302eaf3eb7f3b07bf91094d6}\label{buffer_8h_a1014454e302eaf3eb7f3b07bf91094d6}} 
+\index{buffer.h@{buffer.h}!ft\_buffclose\_long@{ft\_buffclose\_long}}
+\index{ft\_buffclose\_long@{ft\_buffclose\_long}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{ft\_buffclose\_long()}{ft\_buffclose\_long()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+buffclose\+\_\+long (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Flushes all the contents of a long buffer and frees it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & (\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$)\+: the buffer to close.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(ssize\+\_\+t)\+: error code. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{buffer_8h_a1c19e8bbadfd21bc5b631cbe6293906e}\label{buffer_8h_a1c19e8bbadfd21bc5b631cbe6293906e}} 
+\index{buffer.h@{buffer.h}!ft\_buffinit@{ft\_buffinit}}
+\index{ft\_buffinit@{ft\_buffinit}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{ft\_buffinit()}{ft\_buffinit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$ ft\+\_\+buffinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new character buffer instance. 
+
+Buffer will have its index set to 0 and its data will be null-\/terminated at the first byte to avoid accidental traversal of non-\/initialised values.
+
+\begin{DoxyReturn}{Returns}
+(\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}})\+: new buffer instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{buffer_8h_ac45e7ff8a01f6899bd641aab00bd6e65}\label{buffer_8h_ac45e7ff8a01f6899bd641aab00bd6e65}} 
+\index{buffer.h@{buffer.h}!ft\_buffinit\_long@{ft\_buffinit\_long}}
+\index{ft\_buffinit\_long@{ft\_buffinit\_long}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{ft\_buffinit\_long()}{ft\_buffinit\_long()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$ ft\+\_\+buffinit\+\_\+long (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates a new longword buffer instance. 
+
+Buffer will have its index set to 0 and its data will be null-\/terminated at the first byte to avoid accidental traversal of non-\/initialised values.
+
+\begin{DoxyReturn}{Returns}
+(\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}})\+: new buffer instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{buffer_8h_adc88375d644782df58a008444b23d260}\label{buffer_8h_adc88375d644782df58a008444b23d260}} 
+\index{buffer.h@{buffer.h}!ft\_bufflush@{ft\_bufflush}}
+\index{ft\_bufflush@{ft\_bufflush}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{ft\_bufflush()}{ft\_bufflush()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+bufflush (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Flushes the contents of a character buffer to STDOUT. 
+
+Displays all the character added to the buffer, resetting its index to 0 and null-\/terminating it. Any other data is not deleted for performace reasons but is set up for rewriting by resetting index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & (\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$)\+: the buffer to flush\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(ssize\+\_\+t)\+: error code. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+error.\+h
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Eliot Mc\+Nab 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/05/2022 
+\end{DoxyDate}
+\mbox{\Hypertarget{buffer_8h_aafcf122e0e5cd862b7be7ee33b4c473e}\label{buffer_8h_aafcf122e0e5cd862b7be7ee33b4c473e}} 
+\index{buffer.h@{buffer.h}!ft\_bufflush\_long@{ft\_bufflush\_long}}
+\index{ft\_bufflush\_long@{ft\_bufflush\_long}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{ft\_bufflush\_long()}{ft\_bufflush\_long()}}
+{\footnotesize\ttfamily ssize\+\_\+t ft\+\_\+bufflush\+\_\+long (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Flushes the contents of a longword buffer to STDOUT. 
+
+Displays all the bytes added to the buffer, resetting its index to 0 and null-\/terminating it. Any other data is not deleted for performace reasons but is set up for rewritting by resetting index.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & (\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$)\+: the buffer to flush.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(ssize\+\_\+t)\+: error code. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{errors_8h}{errors.\+h}}
+\end{DoxySeeAlso}
+\begin{DoxyAuthor}{Author}
+Eliot Mc\+Nab 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/05/2022 
+\end{DoxyDate}
+\mbox{\Hypertarget{buffer_8h_a2d84720e543e1c246f8e690eaf0cc59d}\label{buffer_8h_a2d84720e543e1c246f8e690eaf0cc59d}} 
+\index{buffer.h@{buffer.h}!ft\_buffull@{ft\_buffull}}
+\index{ft\_buffull@{ft\_buffull}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{ft\_buffull()}{ft\_buffull()}}
+{\footnotesize\ttfamily bool ft\+\_\+buffull (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Determnines if a characterb buffer is full. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & (\mbox{\hyperlink{structt__s__buffer}{t\+\_\+s\+\_\+buffer}} $\ast$)\+: buffer to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(bool)\+: true if buffer is full, false otherwise.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Eliot Mc\+Nab 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/05/2022 
+\end{DoxyDate}
+\mbox{\Hypertarget{buffer_8h_a336c53b2f996139e6afa76eac80e18c9}\label{buffer_8h_a336c53b2f996139e6afa76eac80e18c9}} 
+\index{buffer.h@{buffer.h}!ft\_buffull\_long@{ft\_buffull\_long}}
+\index{ft\_buffull\_long@{ft\_buffull\_long}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{ft\_buffull\_long()}{ft\_buffull\_long()}}
+{\footnotesize\ttfamily bool ft\+\_\+buffull\+\_\+long (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Determnines if a longword buffer is full. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & (\mbox{\hyperlink{structt__s__buffer__long}{t\+\_\+s\+\_\+buffer\+\_\+long}} $\ast$)\+: buffer to check.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(bool)\+: true if buffer is full, false otherwise.
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Eliot Mc\+Nab 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/05/2022 
+\end{DoxyDate}

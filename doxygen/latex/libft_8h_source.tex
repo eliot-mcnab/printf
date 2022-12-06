@@ -1,0 +1,193 @@
+\hypertarget{libft_8h_source}{}\doxysection{libft.\+h}
+\label{libft_8h_source}\index{includes/libft.h@{includes/libft.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{2 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{3 \textcolor{comment}{/*                                                        :::      ::::::::   */}}
+\DoxyCodeLine{4 \textcolor{comment}{/*   libft.h                                            :+:      :+:    :+:   */}}
+\DoxyCodeLine{5 \textcolor{comment}{/*                                                    +:+ +:+         +:+     */}}
+\DoxyCodeLine{6 \textcolor{comment}{/*   By: emcnab <emcnab@student.42.fr>              +\#+  +:+       +\#+        */}}
+\DoxyCodeLine{7 \textcolor{comment}{/*                                                +\#+\#+\#+\#+\#+   +\#+           */}}
+\DoxyCodeLine{8 \textcolor{comment}{/*   Created: 2022/11/07 16:47:51 by emcnab            \#+\#    \#+\#             */}}
+\DoxyCodeLine{9 \textcolor{comment}{/*   Updated: 2022/12/05 08:49:23 by emcnab           \#\#\#   \#\#\#\#\#\#\#\#.fr       */}}
+\DoxyCodeLine{10 \textcolor{comment}{/*                                                                            */}}
+\DoxyCodeLine{11 \textcolor{comment}{/* ************************************************************************** */}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef LIBFT\_H}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\# define LIBFT\_H}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\# include <stddef.h>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\# include <stdlib.h>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\# include <stdbool.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\# include <limits.h>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\# include <stdarg.h>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\# include <unistd.h>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{preprocessor}{\# define STDOUT 1}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\# define STDERR 2}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\# define BUFFER\_SIZE 256}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\# define ARRAY\_SIZE 32}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\# ifdef \_WIN64}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#  define SIZE\_MAX \_UI64\_MAX}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\# else}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#  define SIZE\_MAX UINT\_MAX}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\# endif}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{typedef} \textcolor{keyword}{const} \textcolor{keywordtype}{char}*         t\_str;}
+\DoxyCodeLine{35 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}       t\_byte;}
+\DoxyCodeLine{36 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}        t\_uint;}
+\DoxyCodeLine{37 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}       t\_uchar;}
+\DoxyCodeLine{38 \textcolor{keyword}{typedef} \textcolor{keywordtype}{size\_t}*             t\_data;}
+\DoxyCodeLine{39 \textcolor{keyword}{typedef} \textcolor{keywordtype}{void}*               t\_any;}
+\DoxyCodeLine{40 \textcolor{keyword}{typedef} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int}   t\_lword;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structs__list}{s\_list}}}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44     t\_any           content;}
+\DoxyCodeLine{45     \textcolor{keyword}{struct }\mbox{\hyperlink{structs__list}{s\_list}} *next;}
+\DoxyCodeLine{46 \}   \mbox{\hyperlink{structs__list}{t\_list}};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structs__conv}{s\_conv}}}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50     int     (*f\_cmp)(t\_any, t\_any);}
+\DoxyCodeLine{51     char    (*f\_tochar)(t\_any);}
+\DoxyCodeLine{52     int     (*f\_toint)(t\_any);}
+\DoxyCodeLine{53     long    (*f\_tolong)(t\_any);}
+\DoxyCodeLine{54     \textcolor{keywordtype}{char}    *(*f\_tostr)(t\_any);}
+\DoxyCodeLine{55 \}   \mbox{\hyperlink{structs__conv}{t\_conv}};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structs__linkstr}{s\_linkstr}}}
+\DoxyCodeLine{58 \{}
+\DoxyCodeLine{59     \mbox{\hyperlink{structs__list}{t\_list}}    *strs\_first;}
+\DoxyCodeLine{60     \mbox{\hyperlink{structs__list}{t\_list}}    *strs\_last;}
+\DoxyCodeLine{61     \textcolor{keywordtype}{size\_t}  linksize;}
+\DoxyCodeLine{62     \textcolor{keywordtype}{size\_t}  i;}
+\DoxyCodeLine{63 \}   \mbox{\hyperlink{structs__linkstr}{t\_lstr}};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{comment}{// \_Pragma("{}GCC diagnostic push"{})}}
+\DoxyCodeLine{66 \textcolor{comment}{// \_Pragma("{}GCC diagnostic ignored \(\backslash\)"{}-\/Wpadded\(\backslash\)"{}"{})}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structs__line}{s\_line}}}
+\DoxyCodeLine{69 \{}
+\DoxyCodeLine{70     \textcolor{keywordtype}{size\_t}  i;}
+\DoxyCodeLine{71     \textcolor{keywordtype}{char}    buffer[BUFFER\_SIZE + 1];}
+\DoxyCodeLine{72 \}   \mbox{\hyperlink{structs__line}{t\_line}};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{comment}{// \_Pragma("{}GCC diagnostic pop"{})}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structs__magic}{s\_magic}}}
+\DoxyCodeLine{77 \{}
+\DoxyCodeLine{78     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int}   lomagic;}
+\DoxyCodeLine{79     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int}   himagic;}
+\DoxyCodeLine{80     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int}   crmagic;}
+\DoxyCodeLine{81 \}   \mbox{\hyperlink{structs__magic}{t\_magic}};}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{structs__all__magic}{s\_all\_magic}}}
+\DoxyCodeLine{84 \{}
+\DoxyCodeLine{85     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int}   lomagic;}
+\DoxyCodeLine{86     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int}   himagic;}
+\DoxyCodeLine{87     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int}   *crmagic;}
+\DoxyCodeLine{88 \}   \mbox{\hyperlink{structs__all__magic}{t\_allmagic}};}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{comment}{// character manipulation}}
+\DoxyCodeLine{91 \textcolor{keywordtype}{int}     ft\_islower(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{92 \textcolor{keywordtype}{int}     ft\_isupper(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{93 \textcolor{keywordtype}{int}     ft\_isalpha(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{94 \textcolor{keywordtype}{int}     ft\_isdigit(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{95 \textcolor{keywordtype}{int}     ft\_isalnum(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{96 \textcolor{keywordtype}{int}     ft\_isascii(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{97 \textcolor{keywordtype}{int}     ft\_isspace(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{98 \textcolor{keywordtype}{int}     ft\_isprint(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{99 \textcolor{keywordtype}{int}     ft\_toupper(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{100 \textcolor{keywordtype}{int}     ft\_tolower(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{101 \textcolor{keywordtype}{int}     ft\_todigit(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{102 \textcolor{keywordtype}{int}     ft\_tochar(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{103 t\_str   ft\_tostr(\textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{comment}{// integer manipulation}}
+\DoxyCodeLine{106 \textcolor{keywordtype}{int}     ft\_sign(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{107 \textcolor{keywordtype}{size\_t}  ft\_max(\textcolor{keywordtype}{size\_t} a, \textcolor{keywordtype}{size\_t} b);}
+\DoxyCodeLine{108 \textcolor{keywordtype}{size\_t}  ft\_min(\textcolor{keywordtype}{size\_t} a, \textcolor{keywordtype}{size\_t} b);}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{comment}{// maths}}
+\DoxyCodeLine{111 \textcolor{keywordtype}{int}     ft\_abs(\textcolor{keywordtype}{int} a);}
+\DoxyCodeLine{112 \textcolor{keywordtype}{double}  ft\_pow(\textcolor{keywordtype}{int} a, \textcolor{keywordtype}{int} b);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{comment}{// string manipulation}}
+\DoxyCodeLine{115 \textcolor{comment}{// TODO: string functions need rethinking as to how 'const' is handled}}
+\DoxyCodeLine{116 \textcolor{keywordtype}{int}     ft\_strncmp(t\_str str\_a, t\_str str\_b, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{117 \textcolor{keywordtype}{int}     ft\_strcmp(t\_str str\_a, t\_str str\_b);}
+\DoxyCodeLine{118 \textcolor{keywordtype}{int}     ft\_atoi(t\_str str\_int);}
+\DoxyCodeLine{119 \textcolor{keywordtype}{char}    *ft\_strrev(\textcolor{keywordtype}{char} *str, \textcolor{keywordtype}{size\_t} from, \textcolor{keywordtype}{size\_t} until);}
+\DoxyCodeLine{120 \textcolor{keywordtype}{char}    *ft\_strchr(\textcolor{keywordtype}{char} *str, \textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{121 \textcolor{keywordtype}{char}    *ft\_strrchr(\textcolor{keywordtype}{char} *str, \textcolor{keywordtype}{int} c);}
+\DoxyCodeLine{122 t\_str   ft\_quickfind(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *str, \textcolor{keywordtype}{char} to\_find);}
+\DoxyCodeLine{123 \textcolor{keywordtype}{char}    *ft\_quickfind\_all(\textcolor{keywordtype}{char} *str, \textcolor{keywordtype}{char} *to\_find);}
+\DoxyCodeLine{124 t\_lword *ft\_lword\_search(t\_lword *lwords, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} to\_find);}
+\DoxyCodeLine{125 \textcolor{keywordtype}{char}    *ft\_strnstr(t\_str source, t\_str substr, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{126 \textcolor{keywordtype}{char}    *ft\_strdup(t\_str str\_original);}
+\DoxyCodeLine{127 \textcolor{keywordtype}{char}    *ft\_substr(t\_str \textcolor{keywordtype}{string}, t\_uint start\_index, \textcolor{keywordtype}{size\_t} max\_size);}
+\DoxyCodeLine{128 \textcolor{keywordtype}{char}    *ft\_strjoin(t\_str str\_a, t\_str str\_b);}
+\DoxyCodeLine{129 \textcolor{keywordtype}{char}    *ft\_strnjoin(\textcolor{keywordtype}{size\_t} argc, ...);}
+\DoxyCodeLine{130 \textcolor{keywordtype}{char}    *ft\_strtrim(t\_str to\_trim, t\_str trim\_set);}
+\DoxyCodeLine{131 \textcolor{keywordtype}{char}    *ft\_itoa(\textcolor{keywordtype}{int} n);}
+\DoxyCodeLine{132 \textcolor{keywordtype}{char}    *ft\_strmapi(t\_str str, \textcolor{keywordtype}{char} (*mapping\_f)(t\_uint, \textcolor{keywordtype}{char}));}
+\DoxyCodeLine{133 \textcolor{keywordtype}{char}    **ft\_split(t\_str to\_split, \textcolor{keywordtype}{char} delimiter);}
+\DoxyCodeLine{134 \textcolor{keywordtype}{size\_t}  ft\_strlen(t\_str str);}
+\DoxyCodeLine{135 \textcolor{keywordtype}{size\_t}  ft\_strlcat(\textcolor{keywordtype}{char} *dest, t\_str src, \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{136 \textcolor{keywordtype}{size\_t}  ft\_strlcpy(\textcolor{keywordtype}{char} *dest, t\_str src, \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{137 \textcolor{keywordtype}{size\_t}  ft\_strnsum(t\_str str, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{138 \textcolor{keywordtype}{size\_t}  ft\_strsum(t\_str str);}
+\DoxyCodeLine{139 \textcolor{keywordtype}{void}    ft\_striteri(\textcolor{keywordtype}{char} *str, \textcolor{keywordtype}{void} (*f)(t\_uint, \textcolor{keywordtype}{char} *));}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{comment}{// memory manipulation}}
+\DoxyCodeLine{142 \textcolor{keywordtype}{void}    ft\_bzero(\textcolor{keywordtype}{void} *mem, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{143 \textcolor{keywordtype}{void}    ft\_freeset(\textcolor{keywordtype}{void} *to\_free, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{144 \textcolor{keywordtype}{void}    *ft\_memset(\textcolor{keywordtype}{void} *memory, \textcolor{keywordtype}{int} \textcolor{keywordtype}{byte}, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{145 \textcolor{keywordtype}{void}    *ft\_memcpy(\textcolor{keywordtype}{void} *dest, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{146 \textcolor{keywordtype}{void}    *ft\_memmove(\textcolor{keywordtype}{void} *dest, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *src, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{147 \textcolor{keywordtype}{void}    *ft\_memchr(\textcolor{keyword}{const} \textcolor{keywordtype}{void} *chr, \textcolor{keywordtype}{int} to\_find, \textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{148 \textcolor{keywordtype}{void}    *ft\_calloc(\textcolor{keywordtype}{size\_t} elem\_count, \textcolor{keywordtype}{size\_t} elem\_size);}
+\DoxyCodeLine{149 \textcolor{keywordtype}{char}    *ft\_stralloc(\textcolor{keywordtype}{size\_t} n);}
+\DoxyCodeLine{150 \textcolor{keywordtype}{char}    *ft\_memstr(t\_any mem, \textcolor{keywordtype}{size\_t} mem\_size);}
+\DoxyCodeLine{151 \textcolor{keywordtype}{int}     ft\_memcmp(\textcolor{keyword}{const} \textcolor{keywordtype}{void} *mem\_a, \textcolor{keyword}{const} \textcolor{keywordtype}{void} *mem\_b, \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{152 \textcolor{keywordtype}{size\_t}  *ft\_pack(\textcolor{keywordtype}{size\_t} argc, ...);}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{comment}{// system io}}
+\DoxyCodeLine{155 ssize\_t ft\_putchar\_fd(\textcolor{keywordtype}{char} c, \textcolor{keywordtype}{int} file\_desc);}
+\DoxyCodeLine{156 ssize\_t ft\_putstr\_fd(\textcolor{keywordtype}{char} *str, \textcolor{keywordtype}{int} file\_desc);}
+\DoxyCodeLine{157 ssize\_t ft\_putendl\_fd(\textcolor{keywordtype}{char} *str, \textcolor{keywordtype}{int} file\_desc);}
+\DoxyCodeLine{158 ssize\_t ft\_putnbr\_fd(\textcolor{keywordtype}{int} n, \textcolor{keywordtype}{int} file\_desc);}
+\DoxyCodeLine{159 \textcolor{keywordtype}{char}    *ft\_get\_next\_line(\textcolor{keywordtype}{int} fd);}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{comment}{// type conversion}}
+\DoxyCodeLine{162 \mbox{\hyperlink{structs__conv}{t\_conv}}    *ft\_converter(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{163 \textcolor{keywordtype}{void}    ft\_convtoint(\mbox{\hyperlink{structs__conv}{t\_conv}} *conv, \textcolor{keywordtype}{int} (*f\_toint)(t\_any));}
+\DoxyCodeLine{164 \textcolor{keywordtype}{void}    ft\_convtochar(\mbox{\hyperlink{structs__conv}{t\_conv}} *conv, \textcolor{keywordtype}{char} (*f\_tochar)(t\_any));}
+\DoxyCodeLine{165 \textcolor{keywordtype}{void}    ft\_convtostr(\mbox{\hyperlink{structs__conv}{t\_conv}} *conv, \textcolor{keywordtype}{char} *(*f\_tostr)(t\_any));}
+\DoxyCodeLine{166 \textcolor{keywordtype}{void}    ft\_convtolong(\mbox{\hyperlink{structs__conv}{t\_conv}} *conv, \textcolor{keywordtype}{long} (*f\_tolong)(t\_any));}
+\DoxyCodeLine{167 \textcolor{keywordtype}{void}    ft\_convcmp(\mbox{\hyperlink{structs__conv}{t\_conv}} *conv, \textcolor{keywordtype}{int} (*f\_cmp)(t\_any, t\_any));}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169 \textcolor{comment}{// linked lists}}
+\DoxyCodeLine{170 \mbox{\hyperlink{structs__list}{t\_list}}    *ft\_lst\_new(t\_any content);}
+\DoxyCodeLine{171 \mbox{\hyperlink{structs__list}{t\_list}}    *ft\_lst\_last(\mbox{\hyperlink{structs__list}{t\_list}} *head);}
+\DoxyCodeLine{172 \mbox{\hyperlink{structs__list}{t\_list}}    *ft\_lst\_map(\mbox{\hyperlink{structs__list}{t\_list}} *head, t\_any (*f\_map)(t\_any), \textcolor{keywordtype}{void} (*f\_free)(t\_any));}
+\DoxyCodeLine{173 \textcolor{keywordtype}{int}     ft\_lst\_size(\mbox{\hyperlink{structs__list}{t\_list}} *head);}
+\DoxyCodeLine{174 \textcolor{keywordtype}{void}    ft\_lst\_add\_front(\mbox{\hyperlink{structs__list}{t\_list}} **list, \mbox{\hyperlink{structs__list}{t\_list}} *node);}
+\DoxyCodeLine{175 \textcolor{keywordtype}{void}    ft\_lst\_iter(\mbox{\hyperlink{structs__list}{t\_list}} *head, \textcolor{keywordtype}{void} (*f)(t\_any));}
+\DoxyCodeLine{176 \textcolor{keywordtype}{void}    ft\_lstadd\_back(\mbox{\hyperlink{structs__list}{t\_list}} **head, \mbox{\hyperlink{structs__list}{t\_list}} *node\_new);}
+\DoxyCodeLine{177 \textcolor{keywordtype}{void}    ft\_lst\_delone(\mbox{\hyperlink{structs__list}{t\_list}} *node, \textcolor{keywordtype}{void} (*f)(t\_any));}
+\DoxyCodeLine{178 \textcolor{keywordtype}{void}    ft\_lst\_clear(\mbox{\hyperlink{structs__list}{t\_list}} **head, \textcolor{keywordtype}{void} (*f)(t\_any));}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{comment}{// linked strings}}
+\DoxyCodeLine{181 \mbox{\hyperlink{structs__linkstr}{t\_lstr}}    *ft\_linkstr\_new(\textcolor{keywordtype}{size\_t} linksize);}
+\DoxyCodeLine{182 \textcolor{keywordtype}{void}    ft\_linkstr\_add(\mbox{\hyperlink{structs__linkstr}{t\_lstr}} *linkstr, \textcolor{keywordtype}{char} *str);}
+\DoxyCodeLine{183 \textcolor{keywordtype}{size\_t}  ft\_linkstr\_size(\mbox{\hyperlink{structs__linkstr}{t\_lstr}} *linkstr);}
+\DoxyCodeLine{184 \textcolor{keywordtype}{char}    *ft\_linkstr\_collect(\mbox{\hyperlink{structs__linkstr}{t\_lstr}} *linkstr);}
+\DoxyCodeLine{185 \textcolor{keywordtype}{void}    *ft\_linkstr\_delall(\mbox{\hyperlink{structs__linkstr}{t\_lstr}} *linkstr, \textcolor{keywordtype}{void} (*f\_free)(\textcolor{keywordtype}{void} *));}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
