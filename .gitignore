@@ -11,6 +11,9 @@ a.out
 test
 test.c
 
+# ignores doxygen generate files
+doxygen
+
 #ignores objects
 objs/
 

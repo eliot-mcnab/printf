@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 09:57:24 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 11:59:29 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 static const t_f_formatter	g_printfuncs[] = {
 	&ft_printchar,	  /* handles charcacter display                           */
 	&ft_printstr,     /* handles string display                               */
-	&ft_printnone,     /* handles pointer display                             */
-	&ft_printnone,     /* handles decimal display                             */
-	&ft_printnone,     /* handles int display                                 */
-	&ft_printnone,     /* handles unsigned int display                        */
-	&ft_printnone,     /* handles small caps hex display                      */
-	&ft_printnone,     /* handles big caps hex display                        */
+	&ft_printnone,    /* handles pointer display                              */
+	&ft_printnone,    /* handles decimal display                              */
+	&ft_printnone,    /* handles int display                                  */
+	&ft_printnone,    /* handles unsigned int display                         */
+	&ft_printnone,    /* handles small caps hex display                       */
+	&ft_printnone,    /* handles big caps hex display                         */
 	&ft_printpercent, /* handles percentage display                           */
 };
 

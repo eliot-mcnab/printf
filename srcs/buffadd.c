@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:00:38 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 16:27:05 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 11:57:27 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ ssize_t	ft_buffadd(t_s_buffer *buffer, char c)
  * @param str (char *): the array of characters to add to [buffer],
  *
  * @return (ssize_t): error code.
- * @see errors.h ft_buffadd(2)
+ * @see ft_buffadd(t_s_buffer *, char)
+ * @see errors.h
  *
  * @author Eliot McNab
  * @date 12/05/2022

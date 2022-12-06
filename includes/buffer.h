@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:31:44 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 16:22:39 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/06 11:01:53 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
 # define LBUFFER_SIZE BUFFER_SIZE / sizeof(t_lword)
 
 /**
- * @struct t_s_buffer
  * @brief A buffer of characters used by printf to store and display characters
  *        while a string is still no aligned with t_longword.
  *
@@ -36,14 +35,11 @@
  * then added to buffer, displayed and freed. This allows to more easily reuse
  * libft functions but might change at a later date once a first working
  * prototype has been created.
- *
- * @var i (size_t): current index in the buffer.
- * @var data (char *): data contained by the buffer.
  */
 typedef struct s_buffer
 {
-	size_t	i;
-	char	data[sizeof(t_lword)];
+	size_t	i;                     /**< (size_t): current index in the buffer.  */
+	char	data[sizeof(t_lword)]; /**< (char *): data contained by the buffer. */
 }	t_s_buffer;
 
 t_s_buffer		*ft_buffinit(void);
@@ -54,7 +50,6 @@ ssize_t			ft_buffclose(t_s_buffer *buffer);
 ssize_t			ft_buffadd_str(t_s_buffer *buffer, char *str);
 
 /**
- * @struct t_s_buffer_long
  * @brief A buffer of longwords used by printf to store and display multiple
  *        bytes of information at once.
  *
@@ -67,14 +62,12 @@ ssize_t			ft_buffadd_str(t_s_buffer *buffer, char *str);
  * where a format string has been added. Because of this, buffer will be
  * considered as multiple null-terminated c strings upon display, until the end
  * of the buffer has been reached.
- *
- * @var i (size_t): current index in the buffer.
- * @var data (t_longword *): data contained by the buffer. 
  */
 typedef struct s_lbuffer
 {
-	size_t	i;
-	t_lword	data[LBUFFER_SIZE + 1];
+	size_t	i;                      /**< (size_t): current index in the buffer.*/
+	t_lword	data[LBUFFER_SIZE + 1]; /**< (t_longword *): data contained 
+									      by the buffer.                       */
 }	t_s_buffer_long;
 
 t_s_buffer_long	*ft_buffinit_long(void);
