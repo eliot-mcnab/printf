@@ -6,23 +6,11 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 13:48:51 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:13:04 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/parse.h"
-
-static const t_f_formatter	g_printfuncs[] = {
-	&ft_printchar,
-	&ft_printstr,
-	&ft_printptr,
-	&ft_printint,
-	&ft_printint,
-	&ft_printuint,
-	&ft_printhex_s,
-	&ft_printhex_b,
-	&ft_printind,
-};
 
 static void	ft_parse_moddata(const char **str, t_e_modifier mod, int *moddata)
 {
@@ -112,7 +100,7 @@ ssize_t	ft_parse(const char *str, va_list *valist)
 				ft_buffclose(buffer);
 				return (PARSE_ERROR);
 			}
-			g_printfuncs[(printdata->formdata & MASK) % FORMAT_SIZE](printdata);
+			ft_apply_format(printdata);
 			free(printdata);
 		}
 		if (ft_buffadd(buffer, *str) < 0)

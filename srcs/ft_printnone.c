@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 09:26:51 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 12:33:34 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:05:56 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@
  */
 ssize_t	ft_printnone(t_s_printdata *printdata)
 {
-	return (ft_buffadd_str(printdata->buffer, TBA_STR));
+	return (ft_buffadd_str(printdata->buffer, TBA_FORMAT));
 }

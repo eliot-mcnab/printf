@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:31:23 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 12:15:35 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:05:16 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@
 # define BIG_HEX_BASE   "0123456789ABCDEF"
 # define NULL_STR       "(null)"
 # define NULL_PTR       "(nil)"
-# define TBA_STR        "[formatter not implemented yet]"
+# define TBA_FORMAT     "[formatter not implemented yet]"
+# define TBA_MOD        "[modifier not implemented yet]" 
 
 typedef ssize_t	(*t_f_formatter)(t_s_printdata *);
 

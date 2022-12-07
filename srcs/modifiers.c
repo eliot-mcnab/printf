@@ -6,11 +6,11 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:57:51 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 16:27:33 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:02:59 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/formdata.h"
+#include "../includes/formatters.h"
 
 static const t_s_modinfo	g_modinfo[6] = {
 {0x1, 0x0},		/* '-' */
@@ -39,6 +39,26 @@ static const t_e_modifier	g_to_modifier[] = {
 	MODIFIER_NONE,
 	L_PADDING		// '0'
 };
+
+static const t_f_formatter	*g_modfuncs = {
+	NULL
+};
+
+void	ft_applymod(t_s_printdata *printdata)
+{
+	short int	mask;
+	size_t		i;
+
+	mask = (short)(1 << (CHAR_BIT + MODIFIER_SIZE));
+	i = 0;
+	while (mask > CHAR_MAX)
+	{
+		if (printdata->formdata & mask)
+			g_modfuncs[i](printdata);
+		mask >>= 1;
+		i++;
+	}
+}
 
 /**
  * @brief Adds a [modifier] to a [modgroup] if the [modgroup] does not already

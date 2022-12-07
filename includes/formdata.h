@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:33:13 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 13:48:06 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:11:29 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,11 +94,9 @@ typedef struct s_printdata
 }	t_s_printdata;
 #pragma GCC diagnostic pop
 
-t_s_printdata	*ft_printdata(
-		short int formdata,
-		int *moddata,
-		va_list *valist,
-		t_s_buffer	*bufer
-	);
+t_s_printdata	*ft_printdata(short int formdata, int *moddata, va_list *valist,
+		t_s_buffer *bufer);
+void			ft_apply_format(t_s_printdata *printdata);
+void			ft_applymod(t_s_printdata *printdata);
 
 #endif

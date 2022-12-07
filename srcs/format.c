@@ -6,14 +6,14 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:59:56 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 11:26:01 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 14:12:28 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/formdata.h"
+#include "../includes/formatters.h"
 #include <asm-generic/errno.h>
 
-static const t_e_format	g_to_format[26] = {
+static const t_e_format		g_to_format[26] = {
 	FORMAT_NONE,
 	FORMAT_NONE,
 	CHARACTER,	// c
@@ -41,6 +41,23 @@ static const t_e_format	g_to_format[26] = {
 	FORMAT_NONE,
 	FORMAT_NONE
 };
+
+static const t_f_formatter	g_formfuncs[] = {
+	&ft_printchar,
+	&ft_printstr,
+	&ft_printptr,
+	&ft_printint,
+	&ft_printint,
+	&ft_printuint,
+	&ft_printhex_s,
+	&ft_printhex_b,
+	&ft_printind,
+};
+
+void	ft_apply_format(t_s_printdata *printdata)
+{
+	g_formfuncs[(printdata->formdata & MASK) % FORMAT_SIZE](printdata);
+}
 
 /**
  * @brief Gets the format associated to a character.
