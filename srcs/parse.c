@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 12:27:02 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 13:48:51 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void	ft_parse_moddata(const char **str, t_e_modifier mod, int *moddata)
 		moddata[mod] = moddata[mod] * 10 + ft_todigit(**str);
 		(*str)++;
 	}
+	(*str)--;
 }
 
 static short int	ft_parse_formdata(const char **str, int *moddata)
@@ -46,7 +47,7 @@ static short int	ft_parse_formdata(const char **str, int *moddata)
 	modifier = MODIFIER_NONE;
 	while (format == INDICATOR)
 	{
-		if (format == INDICATOR && ft_ismod(**str))
+		if (ft_ismod(**str))
 		{
 			modifier = ft_get_modidifier(**str);
 			modgroup = ft_modify(modgroup, modifier);
@@ -111,7 +112,7 @@ ssize_t	ft_parse(const char *str, va_list *valist)
 				ft_buffclose(buffer);
 				return (PARSE_ERROR);
 			}
-			g_printfuncs[printdata->formdata % FORMAT_SIZE](printdata);
+			g_printfuncs[(printdata->formdata & MASK) % FORMAT_SIZE](printdata);
 			free(printdata);
 		}
 		if (ft_buffadd(buffer, *str) < 0)

@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:33:13 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 12:41:46 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 13:48:06 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include "buffer.h"
 # include "libft.h"
 
+# define MASK 0xFF
+
 /**
  * @brief represents a format character in a printf call.
  */
@@ -37,8 +39,8 @@ typedef enum e_format
 	UINT,       /**< used to display a base 10 unsigned integer number        */
 	SMALL_HEX,  /**< used to display a hexadecimal number in small caps       */
 	BIG_HEX,    /**< used to display a hexadecimal number in big caps         */
-	INDICATOR, /**< escaped % sign                                           */
-	FORMAT_NONE, /**< placeholder format, used as error flag or temp value     */
+	INDICATOR,  /**< escaped % sign                                           */
+	FORMAT_NONE,/**< placeholder format, used as error flag or temp value     */
 	FORMAT_SIZE,/**< number of formats stored in t_e_format                   */
 }	t_e_format;
 
