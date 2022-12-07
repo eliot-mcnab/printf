@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:56:27 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 19:27:29 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:13:52 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,20 @@
  * @author Eliot McNab
  * @date 12/06/2022
  */
-ssize_t	ft_printptr(short int formdata, t_s_buffer *buffer, va_list valist)
+ssize_t	ft_printptr(t_s_printdata *printdata)
 {
 	void	*ptr;
 	char	*str_ptr;
 	ssize_t	error_code;
 
-	(void) formdata;
-	ptr = va_arg(valist, void *);
+	ptr = va_arg(*printdata->valist, void *);
 	if (!ptr)
-		return (ft_buffadd_str(buffer, NULL_PTR));
+		return (ft_buffadd_str(printdata->buffer, NULL_PTR));
 	str_ptr = ft_itoa_base((long)ptr, SMALL_HEX_BASE);
 	if (!str_ptr)
 		return (MALLOC_ERROR);
-	error_code = ft_buffadd_str(buffer, "0x");
-	error_code = (ft_buffadd_str(buffer, str_ptr) && error_code);
+	error_code = ft_buffadd_str(printdata->buffer, "0x");
+	error_code = (ft_buffadd_str(printdata->buffer, str_ptr) && error_code);
 	free(str_ptr);
 	return (error_code);
 }

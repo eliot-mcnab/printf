@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:33:13 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 12:15:26 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:02:27 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define MODIFIERS_H
 
 # include "types.h"
+# include "buffer.h"
 # include "libft.h"
 
 /**
@@ -36,9 +37,9 @@ typedef enum e_format
 	UINT,       /**< used to display a base 10 unsigned integer number        */
 	SMALL_HEX,  /**< used to display a hexadecimal number in small caps       */
 	BIG_HEX,    /**< used to display a hexadecimal number in big caps         */
-	PERCENTAGE, /**< escaped % sign                                           */
+	INDICATOR, /**< escaped % sign                                           */
+	FORMAT_NONE, /**< placeholder format, used as error flag or temp value     */
 	FORMAT_SIZE,/**< number of formats stored in t_e_format                   */
-	FORMAT_NONE /**< placeholder format, used as error flag or temp value     */
 }	t_e_format;
 
 t_e_format		ft_get_format(char c);
@@ -55,8 +56,8 @@ typedef enum e_modifier
 	ALT_FORM,     /**< '#' : adds 0x for hex and .0 to floats                 */
 	FORCE_SIGN,   /**< '+' : display '+' in signed conversion                 */
 	BLANK_SIGN,   /**< ' ' : blank before positive number in signed conversion*/
+	MODIFIER_NONE,/**< placeholder modifier, used as error flag or temp value */
 	MODIFIER_SIZE,/**< number of modifiers stored in t_e_modifier             */
-	MODIFIER_NONE /**< placeholder modifier, used as error flag or temp value */
 }	t_e_modifier;
 
 /**
@@ -65,13 +66,34 @@ typedef enum e_modifier
  */
 typedef struct s_modinfo
 {
-	char	modifer;	/**< byte pattern representing the modifier            */
-	char	conflics;	/**< byte pattern representing uncompatible modifier   */
+	char	modifer;	/**< byte pattern representing the modifier           */
+	char	conflics;	/**< byte pattern representing uncompatible modifier  */
 }	t_s_modinfo;
 
-short int		ft_printf_data(char modgroup, t_e_format format);
+short int		ft_formdata(char modgroup, t_e_format format);
 char			ft_modify(char modgroup, t_e_modifier modifier);
 t_e_modifier	ft_get_modidifier(char c);
 bool			ft_ismod(char c);
+
+/**
+ * @brief Data used by formatter function to display info.
+ *
+ * @author Eliot McNab
+ * @date 12/07/2022
+ */
+typedef struct s_printdata
+{
+	short int	formdata; /**< byte form of format and modifier               */
+	int			*moddata; /**< values associated to each modifer in [formdata]*/
+	va_list		*valist;  /**< variable argument list of values to format     */
+	t_s_buffer	*buffer;  /**< buffer used to display format                  */
+}	t_s_printdata;
+
+t_s_printdata	*ft_printdata(
+		short int formdata,
+		int *moddata,
+		va_list *valist,
+		t_s_buffer	*bufer
+	);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:59:56 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 09:16:45 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 11:26:01 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_e_format	ft_get_format(char c)
 	else if (c == 'X')
 		return (BIG_HEX);
 	else if (c == '%')
-		return (PERCENTAGE);
+		return (INDICATOR);
 	return (FORMAT_NONE);
 }
 

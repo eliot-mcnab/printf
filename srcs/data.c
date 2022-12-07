@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:09:14 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/05 16:30:46 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 11:50:36 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,36 @@
  * @author Eliot McNab
  * @date 12/05/2022
  */
-short int	ft_printf_data(char modgroup, t_e_format format)
+short int	ft_formdata(char modgroup, t_e_format format)
 {
 	return ((short int)(((unsigned int) modgroup << 8) | format));
+}
+
+/**
+ * @brief Stores all values needed by formatter functions into a single
+ *        structure.
+ *
+ * @param formdata (short int): bitwise representation of a format and its
+ *        modifiers.
+ * @param moddata (int *): values associated to each modifer in [formdata].
+ * @param valist (va_list *): variable argument list of values to format.
+ * @param buffer (t_s_buffer *): buffer used to display format.
+ */
+t_s_printdata	*ft_printdata(
+		short int formdata,
+		int *moddata,
+		va_list *valist,
+		t_s_buffer	*bufer
+	)
+{
+	t_s_printdata	*printdata;
+
+	printdata = malloc(sizeof(*printdata));
+	if (!printdata || !moddata || !valist || !bufer)
+		return (NULL);
+	printdata->formdata = formdata;
+	printdata->moddata = moddata;
+	printdata->valist = valist;
+	printdata->buffer = bufer;
+	return (printdata);
 }

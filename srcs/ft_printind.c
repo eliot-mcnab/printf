@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 09:21:59 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 18:32:26 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:12:23 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,7 @@
  * @author Eliot McNab
  * @date 12/06/2022
  */
-ssize_t	ft_printind(short int formdata, t_s_buffer *buffer, va_list valist)
+ssize_t	ft_printind(t_s_printdata *printdata)
 {
-	(void)formdata;
-	(void)valist;
-	return (ft_buffadd(buffer, FORM_INDICATOR));
+	return (ft_buffadd(printdata->buffer, FORM_INDICATOR));
 }

@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 19:21:45 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:27:02 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,50 +24,57 @@ static const t_f_formatter	g_printfuncs[] = {
 	&ft_printind,
 };
 
-/**
- * @brief Calculates the formdata bytes of a fomat section in a printf string.
- *
- * Formdata is composed of two bytes, where the first bytes holds a hash of the
- * modifiers associated to the format and the second byte contains the index of
- * the format.
- *
- * @param str (char **): reference to the string being parsed, must point to a
- *        FORM_INDICATOR.
- *
- * @return (short int): formdata hash associated to the format startning at 
- *         FORM_INDICATOR. Will be negative if a format error occurred (invalid
- *         format).
- *
- * @author Eliot McNab
- * @date 12/06/2022
- */
-static short int	ft_get_formdata(const char **str)
+static void	ft_parse_moddata(const char **str, t_e_modifier mod, int *moddata)
 {
-	char		modgroup;
-	t_e_format	format;
-	char		form_start;
-
-	if (!str || !*str)
-		return (NULL_ERROR);
-	if (!**str)
-		return (FORMAT_ERROR);
-	(*str)++;
-	modgroup = 0;
-	format = FORMAT_NONE;
-	form_start = FORM_INDICATOR;
-	while (format == FORMAT_NONE)
+	while (ft_isdigit(**str))
 	{
-		if (form_start == FORM_INDICATOR && ft_ismod(**str))
-			modgroup = ft_modify(modgroup, ft_get_modidifier(**str));
-		else if (form_start == FORM_INDICATOR && ft_isformat(**str))
-			format = ft_get_format(**str);
-		else
-			form_start = **str;
-		if (form_start != FORM_INDICATOR && format == FORMAT_NONE)
-			return (FORMAT_ERROR);
+		moddata[mod] = moddata[mod] * 10 + ft_todigit(**str);
 		(*str)++;
 	}
-	return (ft_printf_data(modgroup, format));
+}
+
+static short int	ft_parse_formdata(const char **str, int *moddata)
+{
+	char			modgroup;
+	t_e_format		format;
+	t_e_modifier	modifier;
+
+	if (!str || !*str)
+		return (FORMAT_NONE);
+	modgroup = 0;
+	format = INDICATOR;
+	modifier = MODIFIER_NONE;
+	while (format == INDICATOR)
+	{
+		if (format == INDICATOR && ft_ismod(**str))
+		{
+			modifier = ft_get_modidifier(**str);
+			modgroup = ft_modify(modgroup, modifier);
+		}
+		else if (ft_isdigit(**str))
+			ft_parse_moddata(str, modifier, moddata);
+		else
+			format = ft_get_format(**str);
+		(*str)++;
+	}
+	return (ft_formdata(modgroup, format) * (format != FORMAT_NONE));
+}
+
+static t_s_printdata	*ft_parse_printdata(
+		const char **str,
+		int *moddata,
+		va_list *valist,
+		t_s_buffer *buffer)
+{
+	short int	formatdata;
+
+	if (!str || !*str)
+		return (NULL);
+	(*str)++;
+	formatdata = ft_parse_formdata(str, moddata);
+	if (!formatdata)
+		return (NULL);
+	return (ft_printdata(formatdata, moddata, valist, buffer));
 }
 
 /**
@@ -85,29 +92,31 @@ static short int	ft_get_formdata(const char **str)
  *
  * @see ft_printf(2) errors.h formatters.h
  */
-ssize_t	ft_parse(const char *str, va_list valist)
+ssize_t	ft_parse(const char *str, va_list *valist)
 {
-	t_s_buffer	*buffer;
-	short int	formdata;
+	t_s_buffer		*buffer;
+	int				moddata[MODIFIER_SIZE];
+	t_s_printdata	*printdata;
 
 	buffer = ft_buffinit();
-	formdata = 0;
+	ft_bzero(moddata, MODIFIER_SIZE * sizeof(*moddata));
+	printdata = 0;
 	while (*str)
 	{
 		if (*str == FORM_INDICATOR)
 		{
-			formdata = ft_get_formdata(&str);
-			if (formdata < 0)
+			printdata = ft_parse_printdata(&str, moddata, valist, buffer);
+			if (!printdata)
 			{
 				ft_buffclose(buffer);
 				return (PARSE_ERROR);
 			}
-			g_printfuncs[formdata % FORMAT_SIZE](formdata, buffer, valist);
+			g_printfuncs[printdata->formdata % FORMAT_SIZE](printdata);
+			free(printdata);
 		}
 		if (ft_buffadd(buffer, *str) < 0)
 			return (WRITE_ERROR);
-		if (*str)
-			str++;
+		str += (*str != '\0');
 	}
 	return (ft_buffclose(buffer));
 }

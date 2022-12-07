@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 09:26:51 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 18:32:53 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:15:35 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,7 @@
  * @author Eliot McNab
  * @date 12/06/2022
  */
-ssize_t	ft_printnone(short int formdata, t_s_buffer *buffer, va_list valist)
+ssize_t	ft_printnone(t_s_printdata *printdata)
 {
-	(void) formdata;
-	(void) valist;
-	return (ft_buffadd_str(buffer, "[formatter not implemented yet]"));
+	return (ft_buffadd_str(printdata->buffer, TBA_STR));
 }

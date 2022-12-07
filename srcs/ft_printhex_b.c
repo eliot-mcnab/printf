@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:18:40 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 19:27:44 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:07:48 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,15 @@
  * @author Eliot McNab
  * @date 12/06/2022
  */
-ssize_t	ft_printhex_b(short int formdata, t_s_buffer *buffer, va_list valist)
+ssize_t	ft_printhex_b(t_s_printdata *printdata)
 {
 	char	*str_hex;
 	ssize_t	error_code;
 
-	(void) formdata;
-	str_hex = ft_itoa_base(va_arg(valist, long), BIG_HEX_BASE);
+	str_hex = ft_itoa_base(va_arg(*printdata->valist, long), BIG_HEX_BASE);
 	if (!str_hex)
 		return (MALLOC_ERROR);
-	error_code = ft_buffadd_str(buffer, str_hex);
+	error_code = ft_buffadd_str(printdata->buffer, str_hex);
 	free(str_hex);
 	return (error_code);
 }

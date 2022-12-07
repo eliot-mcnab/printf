@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:31:44 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 19:53:24 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 10:22:20 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 typedef struct s_buffer
 {
 	size_t	i;                     /**< (size_t): current index in the buffer.  */
-	char	data[sizeof(t_lword)]; /**< (char *): data contained by the buffer. */
+	char	data[BUFFER_SIZE];     /**< (char *): data contained by the buffer. */
 }	t_s_buffer;
 
 t_s_buffer		*ft_buffinit(void);
