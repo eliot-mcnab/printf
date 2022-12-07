@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:59:56 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 14:12:28 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 16:44:46 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static const t_e_format		g_to_format[26] = {
 };
 
 static const t_f_formatter	g_formfuncs[] = {
+	&ft_printnone,
 	&ft_printchar,
 	&ft_printstr,
 	&ft_printptr,

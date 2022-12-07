@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:57:28 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 19:52:37 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:29:21 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ ssize_t	ft_bufflush(t_s_buffer *buffer)
 {
 	if (!ft_putstr_fd(buffer->data, STDOUT))
 		return (WRITE_ERROR);
+	buffer->written += buffer->i;
 	buffer->i = 0;
 	buffer->data[0] = '\0';
 	return (NO_ERROR);

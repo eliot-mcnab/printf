@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:25:01 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 11:53:18 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:38:07 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	ft_printf(const char *str, ...)
 {
 	va_list	valist;
+	ssize_t	written;
 
 	va_start(valist, str);
-	if (ft_parse(str, &valist) < 0)
-		return (WRITE_ERROR);
+	written = ft_parse(str, &valist);
 	va_end(valist);
-	return (NO_ERROR);
+	return ((int) written);
 }

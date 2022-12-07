@@ -7,9 +7,10 @@ libftprintf.a
 libft.a
 a.out
 
-# ignores test files
+# ignores test files and directories
 test
 test.c
+printfTester
 
 # ignores doxygen generate files
 doxygen

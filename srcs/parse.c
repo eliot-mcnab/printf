@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 14:13:04 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:57:01 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ static t_s_printdata	*ft_parse_printdata(
  * @param str (const char *): the format sting to parse.
  * @param valist (va_list): list of arguments passed to ft_printf.
  *
+ * @return (ssize_t): total number of character written by to printf buffer over
+ *         parsing lifecycle.
+ *
  * @see ft_printf(2) errors.h formatters.h
  */
 ssize_t	ft_parse(const char *str, va_list *valist)
@@ -103,7 +106,7 @@ ssize_t	ft_parse(const char *str, va_list *valist)
 			ft_apply_format(printdata);
 			free(printdata);
 		}
-		if (ft_buffadd(buffer, *str) < 0)
+		if (*str && ft_buffadd(buffer, *str) < 0)
 			return (WRITE_ERROR);
 		str += (*str != '\0');
 	}

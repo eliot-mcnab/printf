@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:31:44 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 10:22:20 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:36:25 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,17 @@
  */
 typedef struct s_buffer
 {
-	size_t	i;                     /**< (size_t): current index in the buffer.  */
-	char	data[BUFFER_SIZE];     /**< (char *): data contained by the buffer. */
+	size_t	i;                 /**< (size_t): current index in the buffer.    */
+	ssize_t	written;           /**< (size_t): total number of chars written.  */
+	char	data[BUFFER_SIZE]; /**< (char *): data contained by the buffer.   */
 }	t_s_buffer;
 
 t_s_buffer		*ft_buffinit(void);
-ssize_t			ft_bufflush(t_s_buffer *buffer);
 bool			ft_buffull(t_s_buffer *buffer);
+ssize_t			ft_bufflush(t_s_buffer *buffer);
 ssize_t			ft_buffadd(t_s_buffer *buffer, char c);
-ssize_t			ft_buffclose(t_s_buffer *buffer);
 ssize_t			ft_buffadd_str(t_s_buffer *buffer, char *str);
+ssize_t			ft_buffclose(t_s_buffer *buffer);
 
 /*
  * @brief A buffer of longwords used by printf to store and display multiple

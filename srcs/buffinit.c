@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:32:52 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/06 19:52:24 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 17:27:38 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_s_buffer	*ft_buffinit(void)
 	if (!buffer)
 		return (NULL);
 	buffer->i = 0;
+	buffer->written = 0;
 	buffer->data[0] = '\0';
 	return (buffer);
 }

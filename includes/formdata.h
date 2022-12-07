@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:33:13 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 14:11:29 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 16:44:29 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
  */
 typedef enum e_format
 {
+	FORMAT_NONE,/**< placeholder format, used as error flag or temp value     */
 	CHARACTER,  /**< used to display a single ascii charcter                  */
 	STRING,     /**< used to display a string                                 */
 	POINTER,    /**< used to display a pointer adress                         */
@@ -40,7 +41,6 @@ typedef enum e_format
 	SMALL_HEX,  /**< used to display a hexadecimal number in small caps       */
 	BIG_HEX,    /**< used to display a hexadecimal number in big caps         */
 	INDICATOR,  /**< escaped % sign                                           */
-	FORMAT_NONE,/**< placeholder format, used as error flag or temp value     */
 	FORMAT_SIZE,/**< number of formats stored in t_e_format                   */
 }	t_e_format;
 

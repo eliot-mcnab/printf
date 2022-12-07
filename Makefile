@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/07 12:30:49 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/07 16:45:23 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ LIBGIT = https://github.com/eliot-mcnab/libft.git
 # compilation options
 CC     = cc
 OPT    = 3
-CMODE  = hard debug deps fsanitize
+CMODE  = hard debug deps
 DFLAGS = $(foreach directory, $(HDIR), -I$(directory)) -M -MP -MM
 CFLAGS = -Wall -Wextra -Werror
 
