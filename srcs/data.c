@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:09:14 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 11:50:36 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:35:36 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,17 @@ t_s_printdata	*ft_printdata(
 		short int formdata,
 		int *moddata,
 		va_list *valist,
-		t_s_buffer	*bufer
+		t_s_buffer	*buffer
 	)
 {
 	t_s_printdata	*printdata;
 
 	printdata = malloc(sizeof(*printdata));
-	if (!printdata || !moddata || !valist || !bufer)
+	if (!printdata || !moddata || !valist || !buffer)
 		return (NULL);
 	printdata->formdata = formdata;
 	printdata->moddata = moddata;
 	printdata->valist = valist;
-	printdata->buffer = bufer;
+	printdata->buffer = buffer;
 	return (printdata);
 }

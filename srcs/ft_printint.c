@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:33:00 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 12:20:19 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:33:52 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
  * ft_itoa(int n) is used to convert the integer to a string, which is then
  * added to the buffer.
  *
- * @param formdata (short int): hash containing the modifers applied to the
- *        formatter and the formatter's index.
- * @param valist (va_list): variable argument list used to retrieve the
- *        string.
+ * @param printdata (t_s_printdata *): strucutre containing the data used to
+ *        display format.
  *
  * @return (ssize_t): error code.
  * 

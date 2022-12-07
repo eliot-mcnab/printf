@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/07 12:21:05 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/07 12:30:49 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ CDIR  = srcs/
 SRCS   = buffadd.c			buffclose.c			buffinit.c			bufflush.c    \
          buffull.c			data.c				format.c			modifiers.c   \
 		 parse.c			ft_printf.c			ft_printchar.c		ft_printstr.c \
-		 ft_printind.c		ft_printnone.c		ft_printuint.c		ft_printint.c \
+		 ft_printind.c		ft_printnone.c		ft_printint.c 		ft_printuint.c\
 		 ft_printptr.c 		ft_printhex_s.c		ft_printhex_b.c
 
 CFILES += $(foreach file, $(SRCS), $(CDIR)$(file))
@@ -64,7 +64,7 @@ LIBGIT = https://github.com/eliot-mcnab/libft.git
 # compilation options
 CC     = cc
 OPT    = 3
-CMODE  = debug deps fsanitize
+CMODE  = hard debug deps fsanitize
 DFLAGS = $(foreach directory, $(HDIR), -I$(directory)) -M -MP -MM
 CFLAGS = -Wall -Wextra -Werror
 

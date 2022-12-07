@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:31:14 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 12:11:22 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:33:23 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
  * [buffer]. ft_ltoa(int n) is used to convert it to a string, which is then
  * added to the buffer.
  *
- * @param formdata (short int): hash containing the modifers applied to the
- *        formatter and the formatter's index.
- * @param valist (va_list): variable argument list used to retrieve the
- *        string.
+ * @param printdata (t_s_printdata *): strucutre containing the data used to
+ *        display format.
  *
  * @return (ssize_t): error code.
  * 

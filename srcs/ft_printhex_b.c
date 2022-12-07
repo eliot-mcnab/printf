@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:18:40 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 12:07:48 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:32:14 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@
  * hex value to insert is retrieved from [valist] and added to [buffer].
  * Conversion from long to hex is done using the ft_itoa_base function in libft.
  *
- * @param formdata (short int): hash containing the modifers applied to the 
- *        formatter and the formatter's index.
- * @param valist (va_list): variable argument list used to retrieve the
- *        character.
- *
+ * @param printdata (t_s_printdata *): strucutre containing the data used to
+ *        display format.
+ * 
  * @return (ssize_t): error code.
  * 
  * @return (ssize_t): error code.

@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:43:57 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 12:14:34 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:34:17 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
  * the behavior of the orinal printf, if ever the string is NULL, will output
  * (null) instead.
  *
- * @param formdata (short int): hash containing the modifers applied to the
- *        formatter and the formatter's index.
- * @param valist (va_list): variable argument list used to retrieve the
- *        string.
+ * @param printdata (t_s_printdata *): strucutre containing the data used to
+ *        display format.
  *
  * @return (ssize_t): error code.
  * 

@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:33:13 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 12:02:27 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:41:46 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ char			ft_modify(char modgroup, t_e_modifier modifier);
 t_e_modifier	ft_get_modidifier(char c);
 bool			ft_ismod(char c);
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wpadded"
 /**
  * @brief Data used by formatter function to display info.
  *
@@ -88,6 +90,7 @@ typedef struct s_printdata
 	va_list		*valist;  /**< variable argument list of values to format     */
 	t_s_buffer	*buffer;  /**< buffer used to display format                  */
 }	t_s_printdata;
+#pragma GCC diagnostic pop
 
 t_s_printdata	*ft_printdata(
 		short int formdata,

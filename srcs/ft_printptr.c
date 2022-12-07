@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:56:27 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 12:13:52 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/07 12:34:06 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@
  * NULL, will output (nill) instead. Conversion to hexadecimal is done using the
  * ft_itoa_base(long, char) function from libft.
  *
- * @param formdata (short int): hash containing the modifers applied to the
- *        formatter and the formatter's index.
- * @param valist (va_list): variable argument list used to retrieve the
- *        string.
+ * @param printdata (t_s_printdata *): strucutre containing the data used to
+ *        display format.
  *
  * @return (ssize_t): error code.
  * 
