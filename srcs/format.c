@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:59:56 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 16:44:46 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/08 11:43:39 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,15 @@ static const t_f_formatter	g_formfuncs[] = {
 	&ft_printind,
 };
 
+/**
+ * @brief Calls fomatter function for the required format.
+ *
+ * @param printdata (t_s_printdata *): struct of data used to display current
+ *        format.
+ *
+ * @author Eliot McNab
+ * @date 12/08/2022
+ */
 void	ft_apply_format(t_s_printdata *printdata)
 {
 	g_formfuncs[(printdata->formdata & MASK) % FORMAT_SIZE](printdata);
@@ -67,6 +76,8 @@ void	ft_apply_format(t_s_printdata *printdata)
  *
  * @return (t_e_format): format associated to [c] or FORMAT_NONE if no format
  *         was associated to [c].
+ * @author Eliot McNab
+ * @date 12/08/2022
  */
 t_e_format	ft_get_format(char c)
 {
@@ -85,6 +96,9 @@ t_e_format	ft_get_format(char c)
  * @param c (char): the character to check.
  *
  * @return (bool): true if [c] is a formatter, false otherwise.
+ *
+ * @author Eliot McNab
+ * @date 12/08/2022
  */
 bool	ft_isformat(char c)
 {

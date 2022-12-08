@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:33:13 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 16:44:29 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/08 11:54:53 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ bool			ft_ismod(char c);
  */
 typedef struct s_printdata
 {
-	short int	formdata; /**< byte form of format and modifier               */
+	short		formdata; /**< byte form of format and modifier               */
 	int			*moddata; /**< values associated to each modifer in [formdata]*/
 	va_list		*valist;  /**< variable argument list of values to format     */
 	t_s_buffer	*buffer;  /**< buffer used to display format                  */

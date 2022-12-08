@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:57:51 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 14:02:59 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/08 12:01:09 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,6 @@ static const t_e_modifier	g_to_modifier[] = {
 	L_PADDING		// '0'
 };
 
-static const t_f_formatter	*g_modfuncs = {
-	NULL
-};
-
-void	ft_applymod(t_s_printdata *printdata)
-{
-	short int	mask;
-	size_t		i;
-
-	mask = (short)(1 << (CHAR_BIT + MODIFIER_SIZE));
-	i = 0;
-	while (mask > CHAR_MAX)
-	{
-		if (printdata->formdata & mask)
-			g_modfuncs[i](printdata);
-		mask >>= 1;
-		i++;
-	}
-}
-
 /**
  * @brief Adds a [modifier] to a [modgroup] if the [modgroup] does not already
  * 	contain a modifier which is incompatible.
@@ -68,6 +48,9 @@ void	ft_applymod(t_s_printdata *printdata)
  * @param modifier (t_modifier): the modifier to add.
  *
  * @return (char): modgroup with the new modifier if there were no comflicts.
+ *
+ * @author Eliot McNab
+ * @date 12/08/2022
  */
 char	ft_modify(char modgroup, t_e_modifier modifier)
 {
@@ -86,6 +69,9 @@ char	ft_modify(char modgroup, t_e_modifier modifier)
  *
  * @return (t_e_modifier): modifer associated to [c] or MODIFIER_NONE if no
  *         fornat was associated to [c].
+ * 
+ * @author Eliot McNab
+ * @date 12/08/2022
  */
 t_e_modifier	ft_get_modidifier(char c)
 {
@@ -100,6 +86,9 @@ t_e_modifier	ft_get_modidifier(char c)
  * @param c (char): the character to check.
  *
  * @return (bool): true if [c] is a modifier, false otherwise.
+ *
+ * @author Eliot McNab
+ * @date 12/08/2022
  */
 bool	ft_ismod(char c)
 {

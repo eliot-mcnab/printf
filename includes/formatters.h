@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:31:23 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 14:05:16 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/08 11:36:20 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@
 
 typedef ssize_t	(*t_f_formatter)(t_s_printdata *);
 
-// TODO: update doccumentation for formatters now that arguments have changed
 ssize_t	ft_printchar(t_s_printdata *printdata);
 ssize_t	ft_printstr(t_s_printdata *printdata);
 ssize_t	ft_printptr(t_s_printdata *printdata);

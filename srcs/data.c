@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:09:14 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 12:35:36 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/08 11:40:11 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ short int	ft_formdata(char modgroup, t_e_format format)
  * @param moddata (int *): values associated to each modifer in [formdata].
  * @param valist (va_list *): variable argument list of values to format.
  * @param buffer (t_s_buffer *): buffer used to display format.
+ *
+ * @author Eliot McNab
+ * @date 12/08/2022
  */
 t_s_printdata	*ft_printdata(
 		short int formdata,
