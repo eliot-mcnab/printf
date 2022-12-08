@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/08 19:44:48 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/08 20:04:06 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,7 +107,7 @@ libft: $(ADIR) $(LIBDIR)
 
 # for binary to be built, all object files must have been compiled into the
 # object directory
-$(ADIR)$(BINARY): $(ODIR) $(DEPDIR) $(OFILES)
+$(ADIR)$(BINARY): $(ODIR) $(OFILES) $(DEPDIR) $(DFILES)
 	@$(AR) $(AFLAGS) $@ $(OFILES)
 	@echo "${LGREEN}${LGRAY}"
 	@echo "${LGREEN} ${WHITE}${BINARY} ${LGREEN}built successfully!${LGRAY}"
@@ -120,7 +120,7 @@ $(ADIR)$(BINARY): $(ODIR) $(DEPDIR) $(OFILES)
 	@echo "${LGREEN} created directory ${@}${LGRAY}"
 
 # for any .o file to be compiled, the corresponding .c file must exist
-$(ODIR)%.o: $(CDIR)%.c $(DEP)
+$(ODIR)%.o: $(CDIR)%.c
 	@$(CC) $(CFLAGS) -c -o $@ $<
 	@echo "${GREEN}|${LGRAY}"
 	@echo "${LGREEN} ${LGRAY}${@} ${GREEN}built successfully!${LGRAY}"
