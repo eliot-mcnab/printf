@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/07 16:45:23 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/08 10:12:23 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,13 +100,13 @@ TEST   = test.c
 all: libft $(BINARY)
 
 # builds libft library
-libft: $(LIBDIR)
+libft: $(ADIR) $(LIBDIR)
 	@(cd ./libft/ && make)
 	@cp ./libft/libft.a $(ADIR)
 
 # for binary to be built, all object files must have been compiled into the
 # object directory
-$(BINARY): $(ODIR) $(DEPDIR) $(OFILES)
+$(BINARY): $(ODIR) $(ADIR) $(DEPDIR) $(OFILES)
 	@$(AR) $(AFLAGS) $(ADIR)$@ $(OFILES)
 	@echo "${LGREEN}${LGRAY}"
 	@echo "${LGREEN} ${WHITE}${BINARY} ${LGREEN}built successfully!${LGRAY}"
