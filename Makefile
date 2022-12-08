@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/08 18:19:32 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/08 19:34:12 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,6 +101,7 @@ all: libft $(ADIR)$(BINARY)
 
 # builds libft library
 libft: $(ADIR) $(LIBDIR)
+	@find ./libft -empty -exec git submodule init && git submodule update
 	@(cd ./libft/ && make)
 	@cp ./libft/libft.a $(ADIR)
 
@@ -161,14 +162,14 @@ re: fclean
 # to update libft, libft must have been cloned
 update: $(LIBDIR)
 	@echo "${LPURPLE}  updating ${WHITE}libft ${LPURPLE}...${LGRAY}"
-	@(cd libft/ && git pull)
+	@git submodule update
 	@cp libft/libft.h includes/
 
 # clones libft into the repo
 $(LIBDIR): 
-	@echo "${LPURPLE}  cloning ${WHITE}libft ${LPURPLE}...${LGRAY}"
+	@echo "${LPURPLE}  adding ${WHITE}libft ${LPURPLE}submodule ...${LGRAY}"
 	@echo "${LPURPLE}|${LGRAY}"
-	@git clone $(LIBGIT)
+	@git submodule add --force $(LIBGIT)
 
 # displays debug info
 debug:

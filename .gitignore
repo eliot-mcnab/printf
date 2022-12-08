@@ -1,6 +1,3 @@
-# ignores libft
-libft/
-
 # ignores libraries and excutables
 archives/
 libftprintf.a
@@ -23,3 +20,4 @@ deps/
 
 # ingores normed directory
 norme/
+rendu/
