@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:47:51 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 18:11:21 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/08 09:18:03 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ size_t	ft_longlen(long l);
 size_t	ft_baselen(unsigned long l, size_t base);
 char	*ft_itoa(int n);
 char	*ft_ltoa(long l);
-char	*ft_itoa_base(unsigned long l, char *base);
+char	*ft_ultoa_base(unsigned long l, char *base);
 
 // maths
 int		ft_abs(int a);
