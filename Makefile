@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/08 19:34:12 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/08 19:44:48 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ all: libft $(ADIR)$(BINARY)
 
 # builds libft library
 libft: $(ADIR) $(LIBDIR)
-	@find ./libft -empty -exec git submodule init && git submodule update
+	@git submodule init && git submodule update
 	@(cd ./libft/ && make)
 	@cp ./libft/libft.a $(ADIR)
 
