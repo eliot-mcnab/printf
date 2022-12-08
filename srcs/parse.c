@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:11:35 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/07 17:57:01 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/08 09:39:18 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ static short int	ft_parse_formdata(const char **str, int *moddata)
 	if (!str || !*str)
 		return (FORMAT_NONE);
 	modgroup = 0;
-	format = INDICATOR;
+	format = FORMAT_NONE;
 	modifier = MODIFIER_NONE;
-	while (format == INDICATOR)
+	while (format == FORMAT_NONE)
 	{
 		if (ft_ismod(**str))
 		{
@@ -95,7 +95,7 @@ ssize_t	ft_parse(const char *str, va_list *valist)
 	printdata = 0;
 	while (*str)
 	{
-		if (*str == FORM_INDICATOR)
+		while (*str == FORM_INDICATOR)
 		{
 			printdata = ft_parse_printdata(&str, moddata, valist, buffer);
 			if (!printdata)

@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:18:40 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/08 09:20:54 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/08 09:26:00 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ ssize_t	ft_printhex_b(t_s_printdata *printdata)
 	char			*str_hex;
 	ssize_t			error_code;
 
-	long_hex = va_arg(*printdata->valist, unsigned long);
+	long_hex = va_arg(*printdata->valist, unsigned int);
 	str_hex = ft_ultoa_base(long_hex, BIG_HEX_BASE);
 	if (!str_hex)
 		return (MALLOC_ERROR);
