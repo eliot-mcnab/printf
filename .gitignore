@@ -1,7 +1,7 @@
 # ignores libft
 libft/
 
-#ignores libraries and excutables
+# ignores libraries and excutables
 archives/
 libftprintf.a
 libft.a
@@ -15,8 +15,11 @@ printfTester
 # ignores doxygen generate files
 doxygen
 
-#ignores objects
+# ignores objects
 objs/
 
-#ignores dependency files
+# ignores dependency files
 deps/
+
+# ingores normed directory
+norme/

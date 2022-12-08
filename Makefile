@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/08 10:12:23 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/08 18:19:32 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ WHITE   = \033[1;37m
 # ==============================================================================
 
 # c source files
-CDIR  = srcs/
+CDIR   = srcs/
 SRCS   = buffadd.c			buffclose.c			buffinit.c			bufflush.c    \
          buffull.c			data.c				format.c			modifiers.c   \
 		 parse.c			ft_printf.c			ft_printchar.c		ft_printstr.c \
@@ -97,7 +97,7 @@ TEST   = test.c
 # ==============================================================================
 
 # by default, builds binary
-all: libft $(BINARY)
+all: libft $(ADIR)$(BINARY)
 
 # builds libft library
 libft: $(ADIR) $(LIBDIR)
@@ -106,8 +106,8 @@ libft: $(ADIR) $(LIBDIR)
 
 # for binary to be built, all object files must have been compiled into the
 # object directory
-$(BINARY): $(ODIR) $(ADIR) $(DEPDIR) $(OFILES)
-	@$(AR) $(AFLAGS) $(ADIR)$@ $(OFILES)
+$(ADIR)$(BINARY): $(ODIR) $(DEPDIR) $(OFILES)
+	@$(AR) $(AFLAGS) $@ $(OFILES)
 	@echo "${LGREEN}${LGRAY}"
 	@echo "${LGREEN} ${WHITE}${BINARY} ${LGREEN}built successfully!${LGRAY}"
 	@$(AR) $(AFLAGS) -M <libftprintf.mri
@@ -134,13 +134,18 @@ oclean:
 	@rm -f $(OFILES)
 	@echo "${RED} removed all object files${LGRAY}"
 
+# removes all temporary archive files
+aclean:
+	@rm -f $(ADIR)*
+	@echo "${RED} removed all temporary archive files${LGRAY}"
+
 # removes all dependency files
 dclean:
 	@rm -f $(DFILES)
 	@echo "${RED} removed all dependency files${LGRAY}"
 
 # removes all object and dependency files
-clean: oclean dclean
+clean: oclean dclean aclean
 	@rm -f test
 
 # removes all object files and the binary
@@ -178,8 +183,8 @@ test: all
 	@echo "${LRED}Running tests...${LGRAY}"
 	@./test
 
-ifneq ($(filter deps, $(CMODE)),)
+ifneq ($(wildcard $(DEPDIR)),)
 -include $(DFILES)
 endif
 
-.PHONY: all libft oclean dclean clean fclean re update debug test
+.PHONY: all libft oclean dclean aclean clean fclean re update debug test
