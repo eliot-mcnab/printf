@@ -6,7 +6,7 @@
 /*   By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 11:27:14 by emcnab            #+#    #+#             */
-/*   Updated: 2022/12/08 11:59:11 by emcnab           ###   ########.fr       */
+/*   Updated: 2022/12/09 10:25:04 by emcnab           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
  * Supports the following flags:
  * - 'c': character
  * - 's': string
+ * - 'p': pointer
  * - 'd': decimal
  * - 'i': int
  * - 'u': unsigned int
