@@ -38,4 +38,4 @@ Generated doccumentation will be in *doxygen/* folder. Open
 A [UML State Diagram](https://www.geeksforgeeks.org/unified-modeling-language-uml-state-diagrams/?ref=lbp)
 can be found under *printf.drawio.pdf* describing the implementation logic
 behind this version of printf. For further information, don't hesitate to
-check out the doccumentation.
+check out the documentation.
