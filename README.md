@@ -17,7 +17,7 @@ Supports the following flags:
 
 ---
 
-## Generating Doccumentation
+## Generating Documentation
 
 Make sure you have [doxygen](https://www.doxygen.nl/download.html) installed on
 your system. Version used is 1.9.5.
@@ -35,7 +35,7 @@ Generated doccumentation will be in *doxygen/* folder. Open
 
 ## Project Structure
 
-A [UML State Diagram](https://www.geeksforgeeks.org/unified-modeling-language-uml-state-diagrams/?ref=lbp)
+A [UML State Diagram](https://www.lucidchart.com/pages/uml-state-machine-diagram)
 can be found under *printf.drawio.pdf* describing the implementation logic
 behind this version of printf. For further information, don't hesitate to
 check out the documentation.
