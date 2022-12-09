@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/08 20:04:06 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/09 10:05:09 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,10 +100,13 @@ TEST   = test.c
 all: libft $(ADIR)$(BINARY)
 
 # builds libft library
-libft: $(ADIR) $(LIBDIR)
+libft: $(ADIR) $(HDIR)libft.h
 	@git submodule init && git submodule update
 	@(cd ./libft/ && make)
 	@cp ./libft/libft.a $(ADIR)
+
+$(HDIR)libft.h: $(LIBDIR)Makefile
+	@cp libft/libft.h includes/
 
 # for binary to be built, all object files must have been compiled into the
 # object directory
@@ -160,15 +163,15 @@ re: fclean
 	@make all
 
 # to update libft, libft must have been cloned
-update: $(LIBDIR)
+update: $(LIBDIR)Makefile
 	@echo "${LPURPLE}  updating ${WHITE}libft ${LPURPLE}...${LGRAY}"
-	@git submodule update
-	@cp libft/libft.h includes/
+	@git submodule init && git submodule update
 
 # clones libft into the repo
-$(LIBDIR): 
+$(LIBDIR)Makefile:
 	@echo "${LPURPLE}  adding ${WHITE}libft ${LPURPLE}submodule ...${LGRAY}"
 	@echo "${LPURPLE}|${LGRAY}"
+	@rm -rf $(LIBDIR)
 	@git submodule add --force $(LIBGIT)
 
 # displays debug info
