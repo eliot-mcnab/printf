@@ -6,7 +6,7 @@
 #    By: emcnab <emcnab@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/30 09:54:21 by emcnab            #+#    #+#              #
-#    Updated: 2022/12/09 10:05:09 by emcnab           ###   ########.fr        #
+#    Updated: 2022/12/09 15:16:18 by emcnab           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -158,6 +158,12 @@ fclean: clean
 	@echo "${RED}|${LGRAY}"
 	@echo "${LRED} removed ${WHITE}${BINARY}${LGRAY}"
 
+# removes all generated folders and files
+reset: fclean
+	@rm -rf $(ADIR) $(ODIR) $(DEPDIR)
+	@echo "${LRED} removed ${WHITE}$(ADIR) $(ODIR) $(DEPDIR)${LGRAY}"
+	@(cd $(LIBDIR) && make fclean)
+
 # removes all compiled files and re-compiles the binary
 re: fclean
 	@make all
@@ -191,4 +197,4 @@ ifneq ($(wildcard $(DEPDIR)),)
 -include $(DFILES)
 endif
 
-.PHONY: all libft oclean dclean aclean clean fclean re update debug test
+.PHONY: all libft oclean dclean aclean clean fclean reset re update debug test
